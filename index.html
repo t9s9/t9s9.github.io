@@ -263,7 +263,7 @@
   }
   .section-num {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: .25em;
     color: var(--ink-mute);
     text-transform: uppercase;
@@ -288,15 +288,15 @@
   .about-grid .col-meta { font-family: var(--mono); font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-mute); }
   .about-prose {
     max-width: 64ch;
-    font-size: 1.05rem;
+    font-size: 14;
     color: var(--ink-soft);
   }
   .about-prose p { margin: 0 0 1.2em; }
-  .about-prose p:first-child::first-line {
+  /* .about-prose p:first-child::first-line {
     font-variant: small-caps;
     letter-spacing: .04em;
     color: var(--ink);
-  }
+  } */
   .about-prose strong { color: var(--ink); font-weight: 500; }
 
   .pull-quote {
@@ -337,7 +337,7 @@
   .pub-group:last-child { margin-bottom: 0; }
   .pub-group-title {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: .25em;
     text-transform: uppercase;
     color: var(--accent);
@@ -347,10 +347,8 @@
     display: flex; align-items: center; gap: .75rem;
   }
   .pub-group-title::before {
-    content: "§";
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 16px;
+    content: "•";
+    font-size: 20px;
     text-transform: none;
     letter-spacing: 0;
   }
@@ -392,7 +390,7 @@
   .pub-title {
     font-family: var(--serif);
     font-weight: 400;
-    font-size: 1.08rem;
+    font-size: 14;
     line-height: 1.4;
     margin: 0 0 .35rem;
     color: var(--ink);
@@ -643,6 +641,51 @@
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
   }
+
+  /* ---------- Abstract toggle ---------- */
+  details.pub-abstract { margin-top: .6rem; }
+  details.pub-abstract summary {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    cursor: pointer;
+    list-style: none;
+    border-bottom: 1px solid transparent;
+    transition: color .2s ease, border-bottom-color .2s ease;
+  }
+  details.pub-abstract summary::-webkit-details-marker { display: none; }
+  details.pub-abstract summary::marker { display: none; }
+  details.pub-abstract summary:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  details.pub-abstract[open] > summary { color: var(--ink); }
+  details.pub-abstract summary .chev {
+    width: 10px; height: 10px;
+    transition: transform .2s ease;
+    flex-shrink: 0;
+  }
+  details.pub-abstract[open] summary .chev { transform: rotate(180deg); }
+  details.pub-abstract[open] .pub-abstract-body {
+    animation: abstract-in .25s ease forwards;
+  }
+  @keyframes abstract-in {
+    from { opacity: 0; transform: translateY(-5px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .pub-abstract-body {
+    margin-top: .65rem;
+    padding: .8rem 0 .8rem 1rem;
+    border-left: 2px solid var(--rule);
+    font-size: .875rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    max-width: 64ch;
+    margin-bottom: 0;
+    text-align: justify;
+  }
 </style>
 </head>
 <body>
@@ -753,8 +796,12 @@
         <div>
           <h4 class="pub-title">Contextual Inference from Single Objects in Vision-Language Models</h4>
           <div class="pub-authors"><b>T. Schaumlöffel*</b>, M. G. Vilas*, G. Roig</div>
-          <a class="pub-link" href="https://github.com/t9s9/vlm-object-localization" target="_blank" rel="noopener">
-            View → <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          <details class="pub-abstract">
+            <summary>Abstract <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <p class="pub-abstract-body">How much scene context a single object carries is a well-studied question in human scene perception, yet how this capacity is organized in vision-language models (VLMs) remains poorly understood, with direct implications for the robustness of these models. We investigate this question through a systematic behavioral and mechanistic analysis of contextual inference from single objects. Presenting VLMs with single objects on masked backgrounds, we probe their ability to infer both fine-grained scene category and coarse superordinate context (indoor vs. outdoor). We found that single objects support above-chance inference at both levels, with performance modulated by the same object properties that predict human scene categorization. Object identity, scene, and superordinate predictions are partially dissociable: accurate inference at one level neither requires nor guarantees accurate inference at the others, and the degree of coupling differs markedly across models. Mechanistically, object representations that remain stable when background context is removed are more predictive of successful contextual inference. Scene and superordinate schemas are grounded in fundamentally different ways: scene identity is encoded in image tokens throughout the network, while superordinate information emerges only late or not at all. Together, these results reveal that the organization of contextual inference in VLMs is more complex than accuracy alone suggests, with behavioral and mechanistic signatures dissociating in ways that differ substantially across models.</p>
+          </details>
+          <a class="pub-link" href="https://arxiv.org/pdf/2603.26731" target="_blank" rel="noopener">
+            ArXiv <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </a>
         </div>
       </article>
@@ -768,8 +815,12 @@
           </span>
           <h4 class="pub-title">Mechanisms of Object Localization in Vision-Language Models</h4>
           <div class="pub-authors"><b>T. Schaumlöffel</b>, M. G. Vilas, G. Roig</div>
+          <details class="pub-abstract">
+            <summary>Abstract <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <p class="pub-abstract-body">Visually-grounded language models (VLMs) are highly effective in linking visual and textual information, yet they often struggle with basic classification and localization tasks. While classification mechanisms have been studied more extensively, the processes that support object localization remain poorly understood. In this work, we investigate two representative families, LLaVA-1.5 and InternVL-3.5, using a suite of mechanistic interpretability tools, including token ablations, attention knockout, and causal mediation analysis. We find that localization is driven by a containerization mechanism in which object-aligned tokens define the spatial extent of the object, while the semantic arrangement of tokens within those boundaries is largely irrelevant to the predicted box. Only a very small set of attention heads mediates the causal effect for both classification and localization, concentrating in early–mid layers for LLaVA and mid–late layers for InternVL. The two tasks share some early processing but ultimately depend on largely distinct specialized heads. Overall, we provide the first layer- and head-level account of localization in VLMs, revealing narrow computational pathways that can guide future model design and grounding objectives.</p>
+          </details>
           <a class="pub-link" href="https://github.com/t9s9/vlm-object-localization" target="_blank" rel="noopener">
-            View → <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </a>
         </div>
       </article>
@@ -779,8 +830,12 @@
         <div>
           <h4 class="pub-title">Uncovering Object Localization Mechanisms in VLMs</h4>
           <div class="pub-authors"><b>T. Schaumlöffel</b>, M. G. Vilas, G. Roig — <em>Mechanistic Interpretability Workshop</em></div>
+          <details class="pub-abstract">
+            <summary>Abstract <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <p class="pub-abstract-body">  Visually-grounded language models (VLMs) are highly effective in linking visual and textual information, yet they often struggle with basic classification and localization tasks. While classification mechanisms have been studied more extensively, the processes that support object detection remain less clear. In this work, we analyze foundational VLMs and show that image tokens corresponding to the object directly contain the information required for localization. We find that the model applies a containerization mechanism: it uses object-related tokens to define spatial boundaries, while largely discarding semantic context. Our analysis further reveals that this information is processed in the early to middle layers of the language model and that classification and detection rely on shared mechanisms. Finally, we demonstrate that spatial grounding does not come solely from positional encodings in the visual backbone, but rather from residual positional signals combined with the language model’s ability to infer spatial order from token sequences.</p>
+          </details>
           <a class="pub-link" href="https://openreview.net/forum?id=JaD7C4Kldz" target="_blank" rel="noopener">
-            OpenReview → <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            OpenReview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </a>
         </div>
       </article>
@@ -790,8 +845,12 @@
         <div>
           <h4 class="pub-title">Analyzing Vision Transformers for Image Classification in Class Embedding Space</h4>
           <div class="pub-authors">M. G. Vilas, <b>T. Schaumlöffel</b>, G. Roig</div>
+          <details class="pub-abstract">
+            <summary>Abstract <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <p class="pub-abstract-body">Despite the growing use of transformer models in computer vision, a mechanistic understanding of these networks is still needed. This work introduces a method to reverse-engineer Vision Transformers trained to solve image classification tasks. Inspired by previous research in NLP, we demonstrate how the inner representations at any level of the hierarchy can be projected onto the learned class embedding space to uncover how these networks build categorical representations for their predictions. We use our framework to show how image tokens develop class-specific representations that depend on attention mechanisms and contextual information, and give insights on how self-attention and MLP layers differentially contribute to this categorical composition. We additionally demonstrate that this method (1) can be used to determine the parts of an image that would be important for detecting the class of interest, and (2) exhibits significant advantages over traditional linear probing approaches. Taken together, our results position our proposed framework as a powerful tool for mechanistic interpretability and explainability research.</p>
+          </details>
           <a class="pub-link" href="https://proceedings.neurips.cc/paper_files/paper/2023/file/7dd309df03d37643b96f5048b44da798-Paper-Conference.pdf" target="_blank" rel="noopener">
-            Proceedings → <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            Proceedings <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </a>
         </div>
       </article>
@@ -801,8 +860,12 @@
         <div>
           <h4 class="pub-title">PEACS: Prefix Encoding for Auditory Caption Synthesis</h4>
           <div class="pub-authors"><b>T. Schaumlöffel</b>, M. G. Vilas, G. Roig — <em>Workshop on Detection and Classification of Acoustic Scenes and Events</em></div>
+          <details class="pub-abstract">
+            <summary>Abstract <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <p class="pub-abstract-body">	This technical report describes an Automated Audio Captioning system for the Detection and Classification of Acoustic Scenes and Events (DCASE) 2023 Challenge, Task 6a (automated audio captioning). Our approach employs an encoder-decoder architecture, with the encoder utilizing a large contrastive pre-trained HTS-AT capable of handling variable-length audio segments. The decoder is based on the GPT2 model. To incorporate audio into the decoding process, we employ a light mapping network that translates audio representations into a prefix, effectively guiding the decoder's generation process. Given the limited data availability, we pre-train our model on various audio captioning datasets and fine-tune it on Clotho. We reach a SPIDERr-FL score of 29.3 on the evaluation split of the Clotho-v2 dataset.</p>
+          </details>
           <a class="pub-link" href="https://dcase.community/documents/challenge2023/technical_reports/DCASE2023_Schaumloeffel_107_t6a.pdf" target="_blank" rel="noopener">
-            Report → <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            Report <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </a>
         </div>
       </article>
@@ -817,8 +880,12 @@
         <div>
           <h4 class="pub-title">Temporal Slowness in Central Vision Drives Semantic Object Learning</h4>
           <div class="pub-authors"><b>T. Schaumlöffel*</b>, A. Aubret*, G. Roig, J. Triesch</div>
+          <details class="pub-abstract">
+            <summary>Abstract <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <p class="pub-abstract-body">Humans acquire semantic object representations from egocentric visual streams with minimal supervision, but the underlying mechanisms remain unclear. Importantly, the visual system only processes the center of its field of view with high resolution and it learns similar representations for visual inputs occurring close in time. This emphasizes slowly changing information around gaze locations. This study investigates the role of central vision and slowness learning in the formation of semantic object representations from human-like visual experience. We simulate five months of human-like visual experience using the Ego4D dataset and a state-of-the-art gaze prediction model. We extract image crops around predicted gaze locations to train a time-contrastive Self-Supervised Learning model. Our results show that exploiting temporal slowness when learning from central visual field experience improves the encoding of different facets of object semantics. Specifically, focusing on central vision strengthens the extraction of foreground object features, while considering temporal slowness, especially in conjunction with eye movements, allows the model to encode broader semantic information about objects. These findings provide new insights into the mechanisms by which humans may develop semantic object representations from natural visual experience.</p>
+          </details>
           <a class="pub-link" href="https://openreview.net/forum?id=tEezDE0vWt" target="_blank" rel="noopener">
-            OpenReview → <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            OpenReview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </a>
         </div>
       </article>
@@ -828,8 +895,12 @@
         <div>
           <h4 class="pub-title">Learning Object Semantic Similarity with Self-Supervision</h4>
           <div class="pub-authors"><b>T. Schaumlöffel*</b>, A. Aubret*, G. Roig, J. Triesch</div>
+          <details class="pub-abstract">
+            <summary>Abstract <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <p class="pub-abstract-body">Humans judge the similarity of two objects not just based on their visual appearance but also based on their semantic relatedness. However, it remains unclear how humans learn about semantic relationships between objects and categories. One important source of semantic knowledge is that semantically related objects frequently co-occur in the same context. For instance, forks and plates are perceived as similar, at least in part, because they are often experienced together in a ``kitchen" or ``eating'' context.  Here, we investigate whether a bio-inspired learning principle exploiting such co-occurrence statistics suffices to learn a semantically structured object representation {\em de novo} from raw visual or combined visual and linguistic input. To this end, we simulate temporal sequences of visual experience by binding together short video clips of real-world scenes showing objects in different contexts. A bio-inspired neural network model aligns close-in-time visual representations while also aligning visual and category label representations to simulate visuo-language alignment. Our results show that our model clusters object representations based on their context, e.g.\ kitchen or bedroom, in particular in high-level layers of the network, akin to humans. In contrast, lower-level layers tend to better reflect object identity or category. To achieve this, the model exploits two distinct strategies: the visuo-language alignment ensures that different objects of the same category are represented similarly, whereas the temporal alignment leverages that objects from the same context are frequently seen in succession to make their representations more similar. Overall, our work suggests temporal and visuo-language alignment as plausible computational principles for explaining the origins of certain forms of semantic knowledge in humans.</p>
+          </details>
           <a class="pub-link" href="https://ieeexplore.ieee.org/document/10644930" target="_blank" rel="noopener">
-            IEEE → <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            IEEE <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </a>
         </div>
       </article>
@@ -843,8 +914,12 @@
           </span>
           <h4 class="pub-title">Caregiver Talk Shapes Toddler Vision: A Computational Study of Dyadic Play</h4>
           <div class="pub-authors"><b>T. Schaumlöffel*</b>, A. Aubret*, G. Roig, J. Triesch</div>
+          <details class="pub-abstract">
+            <summary>Abstract <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <p class="pub-abstract-body">Infants' ability to recognize and categorize objects develops gradually. The second year of life is marked by both the emergence of more semantic visual representations and a better understanding of word meaning. This suggests that language input may play an important role in shaping visual representations. However, even in suitable contexts for word learning like dyadic play sessions, caregivers utterances are sparse and ambiguous, often referring to objects that are different from the one to which the child attends. Here, we systematically investigate to what extent caregivers' utterances can nevertheless enhance visual representations. \rebut{For this we propose a computational model of visual representation learning during dyadic play}. We introduce a synthetic dataset of ego-centric images perceived by a toddler-agent that moves and rotates toy objects in different parts of its home environment while ``hearing" caregivers' utterances, modeled as captions. We propose to model toddlers' learning as simultaneously aligning representations for 1) close-in-time images and 2) co-occurring images and utterances. We show that utterances with statistics matching those of real caregivers give rise to representations supporting improved category recognition. Our analysis reveals that a small decrease/increase in object-relevant naming frequencies can drastically impact the learned representations. This affects the attention on object names within an utterance, which is required for efficient visuo-linguistic alignment. Overall, our results support the hypothesis that caregivers' naming utterances can improve toddlers' visual representations.</p>
+          </details>
           <a class="pub-link" href="https://ieeexplore.ieee.org/document/10364409" target="_blank" rel="noopener">
-            IEEE → <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            IEEE <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </a>
         </div>
       </article>
@@ -859,8 +934,12 @@
         <div>
           <h4 class="pub-title">Net2Brain: A Toolbox to Compare Artificial Vision Models with Human Brain Responses</h4>
           <div class="pub-authors">D. Bersch, M. G. Vilas, S. Saba-Sadiya, <b>T. Schaumlöffel</b>, K. Dwivedi, C. Sartzetaki, R. M. Cichy, G. Roig</div>
+          <details class="pub-abstract">
+            <summary>Abstract <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <p class="pub-abstract-body">In cognitive neuroscience, the integration of deep neural networks (DNNs) with traditional neuroscientific analyses has significantly advanced our understanding of both biological neural processes and the functioning of DNNs. However, challenges remain in effectively comparing the representational spaces of artificial models and brain data, particularly due to the growing variety of models and the specific demands of neuroimaging research. To address these challenges, we present Net2Brain, a Python-based toolbox that provides an end-to-end pipeline for incorporating DNNs into neuroscience research, encompassing dataset download, a large selection of models, feature extraction, evaluation, and visualization. Net2Brain provides functionalities in four key areas. First, it offers access to over 600 DNNs trained on diverse tasks across multiple modalities, including vision, language, audio, and multimodal data, organized through a carefully structured taxonomy. Second, it provides a streamlined API for downloading and handling popular neuroscience datasets, such as the NSD and THINGS dataset, allowing researchers to easily access corresponding brain data. Third, Net2Brain facilitates a wide range of analysis options, including feature extraction, representational similarity analysis (RSA), and linear encoding, while also supporting advanced techniques like variance partitioning and searchlight analysis. Finally, the toolbox integrates seamlessly with other established open source libraries, enhancing interoperability and promoting collaborative research. By simplifying model selection, data processing, and evaluation, Net2Brain empowers researchers to conduct more robust, flexible, and reproducible investigations of the relationships between artificial and biological neural representations.</p>
+          </details>
           <a class="pub-link" href="https://www.frontiersin.org/journals/neuroinformatics/articles/10.3389/fninf.2025.1515873/full" target="_blank" rel="noopener">
-            Frontiers → <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            Frontiers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
           </a>
         </div>
       </article>
@@ -971,6 +1050,19 @@
     }, { passive: true });
     btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   })();
+
+  // ---------- Abstract toggle close animation ----------
+  document.querySelectorAll('details.pub-abstract').forEach(details => {
+    details.querySelector('summary').addEventListener('click', e => {
+      if (!details.open) return;
+      e.preventDefault();
+      const body = details.querySelector('.pub-abstract-body');
+      body.animate(
+        [{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(-5px)' }],
+        { duration: 180, easing: 'ease' }
+      ).onfinish = () => { details.open = false; };
+    });
+  });
 
   // ---------- Year ----------
   document.getElementById('year').textContent = new Date().getFullYear();
