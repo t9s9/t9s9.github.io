@@ -437,6 +437,9 @@
   }
   .about-prose p { margin: 0 0 1.2em; }
   .about-prose strong { color: var(--ink); font-weight: 500; }
+  /* Prose links point at papers/labs — give them a visible affordance. */
+  .about-prose a { border-bottom: 1px solid var(--rule); }
+  .about-prose a:hover { color: var(--accent); border-color: var(--accent); }
 
   .pull-quote {
     margin: 2.25rem 0 0;
@@ -763,6 +766,11 @@
     flex-wrap: wrap; gap: 1rem;
   }
   .foot-meta a:hover { color: var(--accent); }
+  /* Nods to the "* denotes shared first authorship" footnote in the publication list. */
+  .foot-credit { text-align: right; }
+  .foot-credit a { border-bottom: 1px solid var(--rule); }
+  .foot-credit a:hover { border-color: var(--accent); }
+  .foot-star { color: var(--accent); }
 
   /* ---------- Responsive ---------- */
   @media (max-width: 820px) {
@@ -979,7 +987,8 @@
 
         <p>Alongside this, I develop <strong>cognitively inspired self-supervised learning</strong> methods that draw on developmental science to study how meaningful structure emerges from temporal experience. I'm interested in the dialogue between how brains and models build representations of the visual world.</p>
 
-        <p>My work has appeared at <strong>CVPR, NeurIPS, and ICLR</strong>. I am also a core contributor to <em>Net2Brain</em>, an open-source toolbox for comparing artificial vision models with human brain responses.</p>
+        <!-- Each venue links to the paper it refers to; keep in sync with publications.json. -->
+        <p>My work has appeared at <strong><a href="https://arxiv.org/pdf/2605.19792" target="_blank" rel="noopener" title="Mechanisms of Object Localization in Vision-Language Models — CVPR 2026 (Highlight)">CVPR</a>, <a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/7dd309df03d37643b96f5048b44da798-Paper-Conference.pdf" target="_blank" rel="noopener" title="Analyzing Vision Transformers for Image Classification in Class Embedding Space — NeurIPS 2023">NeurIPS</a>, and <a href="https://openreview.net/forum?id=tEezDE0vWt" target="_blank" rel="noopener" title="Temporal Slowness in Central Vision Drives Semantic Object Learning — ICLR 2026">ICLR</a></strong>. I am also a core contributor to <em><a href="https://www.frontiersin.org/journals/neuroinformatics/articles/10.3389/fninf.2025.1515873/full" target="_blank" rel="noopener" title="Net2Brain: A Toolbox to Compare Artificial Vision Models with Human Brain Responses — Frontiers in Neuroinformatics 2025">Net2Brain</a></em>, an open-source toolbox for comparing artificial vision models with human brain responses.</p>
 
         <div class="keyword-row">
           <span class="kw">Mechanistic Interpretability</span>
@@ -1081,6 +1090,7 @@
 
     <div class="foot-meta">
       <span>© <span id="year"></span> Timothy Schaumlöffel · Frankfurt am Main</span>
+      <span class="foot-credit">Built with Claude</span>
     </div>
   </footer>
   </main>
