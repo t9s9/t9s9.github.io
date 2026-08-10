@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Attention-head ablation — Timothy Schaumlöffel</title>
+
+<!--
+  Standalone preview of the figure that appears in index.html.
+  Both pages mount the same module, so this is the place to check a change
+  without reloading the whole site:
+
+      attention-ablation.js   the figure (styles, markup, animation)
+      ablation.json           what it shows — ablation order, probabilities
+
+  Note: ES modules and fetch need an http:// origin. Opening this file straight
+  from disk will not work; serve the folder instead, e.g.
+
+      python3 -m http.server 8000
+      open http://localhost:8000/attention-ablation.html
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* Mirrors the tokens index.html defines, so the preview matches the site. */
+  :root {
+    --bg: #f5f1e8; --paper: #fbf8f1;
+    --ink: #1a1a1a; --ink-soft: #4a4744; --ink-mute: #6f6a60;
+    --rule: #d8cfb9; --accent: #b54a25;
+    --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #15171a; --paper: #1a1c1f;
+      --ink: #ece7dc; --ink-soft: #b8b3a8; --ink-mute: #9a958a;
+      --rule: #2c2f33; --accent: #e0926a;
+    }
+  }
+  [data-theme="dark"] {
+    --bg: #15171a; --paper: #1a1c1f;
+    --ink: #ece7dc; --ink-soft: #b8b3a8; --ink-mute: #9a958a;
+    --rule: #2c2f33; --accent: #e0926a;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: clamp(1.5rem, 5vw, 4rem) clamp(1.25rem, 4vw, 3rem);
+    background: var(--bg); color: var(--ink);
+    font-family: "Inter Tight", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page { max-width: 1180px; margin: 0 auto; }
+  h1 {
+    font-family: "Fraunces", Georgia, serif; font-weight: 400;
+    font-size: clamp(1.5rem, 4vw, 2.25rem); letter-spacing: -.02em; margin: 0 0 .5rem;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .lede { color: var(--ink-mute); margin: 0 0 2rem; max-width: 46ch; }
+  .toggle {
+    position: fixed; top: 1rem; right: 1rem;
+    font-family: var(--mono); font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+    background: none; border: 1px solid var(--rule); border-radius: 999px;
+    padding: .5rem .9rem; color: var(--ink); cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <button class="toggle" id="themeToggle" type="button">Theme</button>
+
+  <div class="page">
+    <h1>What happens when you <em>remove</em> an attention head?</h1>
+    <p class="lede">Preview of the figure embedded in the site. Edit
+       <a href="ablation.json">ablation.json</a> to change what it shows.</p>
+
+    <div data-attention-ablation data-config="ablation.json"></div>
+  </div>
+
+  <script type="module" src="attention-ablation.js"></script>
+  <script>
+    // Local theme toggle so the preview can be checked in both palettes.
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const root = document.documentElement;
+      const dark = root.getAttribute('data-theme') === 'dark'
+        || (!root.getAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
+      root.setAttribute('data-theme', dark ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+{
+  "_comment": [
+    "Drives the attention-head ablation figure (attention-ablation.js).",
+    "",
+    "steps[]     one entry per state, in order. The first is the intact model and",
+    "            must have \"ablate\": null. Each later entry names the head it",
+    "            removes and the distribution that results.",
+    "ablate      { \"layer\": <0-based layer index>, \"head\": <0-based head index> }",
+    "p           one probability per entry in \"classes\", same order; should sum to 1.",
+    "totalHeads  the real head count of the model being depicted; the counter reads",
+    "            \"n / totalHeads\". Defaults to the number actually drawn.",
+    "image       { \"src\": \"assets/cat.jpg\" } swaps in a real photo. Leave src null",
+    "            to keep the built-in vector cat.",
+    "prompt      any number of short lines; the type auto-shrinks and re-wraps to fit.",
+    "timing      pulseDur is how long the sweep from the input to the end of the",
+    "            stream takes. barAt must be >= pulseAt + pulseDur or the bars move",
+    "            before the signal lands; step must be >= barAt + barDur.",
+    "",
+    "Anything omitted here falls back to DEFAULT_CONFIG in attention-ablation.js."
+  ],
+
+  "classes": ["dog", "cat", "car", "airplane"],
+  "truth": "cat",
+  "prompt": ["What object is", "in the image?"],
+  "image": { "src": null, "alt": "a cat" },
+
+  "layerLabels": ["LAYER 1", "LAYER L"],
+  "headsPerLayer": 4,
+  "totalHeads": 12,
+
+  "timing": {
+    "intro": 1100, "step": 2200, "hold": 2600, "reset": 800,
+    "ablateIn": 320, "pulseAt": 280, "pulseDur": 820,
+    "barAt": 1080, "barDur": 560
+  },
+
+  "steps": [
+    { "ablate": null,
+      "p": [0.14, 0.78, 0.05, 0.03],
+      "note": "intact model — every head active" },
+
+    { "ablate": { "layer": 0, "head": 2 },
+      "p": [0.17, 0.74, 0.06, 0.03],
+      "note": "a redundant head goes — the prediction barely moves" },
+
+    { "ablate": { "layer": 1, "head": 0 },
+      "p": [0.21, 0.69, 0.07, 0.03],
+      "note": "still redundant — “cat” stays on top" },
+
+    { "ablate": { "layer": 0, "head": 0 },
+      "p": [0.27, 0.61, 0.08, 0.04],
+      "note": "confidence erodes, but the answer survives" },
+
+    { "ablate": { "layer": 1, "head": 2 },
+      "p": [0.48, 0.29, 0.15, 0.08],
+      "note": "a head the prediction depended on — the answer collapses" },
+
+    { "ablate": { "layer": 0, "head": 3 },
+      "p": [0.51, 0.22, 0.18, 0.09],
+      "note": "“dog” now dominates" },
+
+    { "ablate": { "layer": 1, "head": 3 },
+      "p": [0.44, 0.17, 0.26, 0.13],
+      "note": "the object representation is falling apart" },
+
+    { "ablate": { "layer": 0, "head": 1 },
+      "p": [0.33, 0.14, 0.31, 0.22],
+      "note": "distribution flattening toward chance" }
+  ]
+}
