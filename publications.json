@@ -44,11 +44,12 @@
           "year": 2026,
           "award": "Highlight",
           "relevant": true,
+          "featured": true,
           "title": "Mechanisms of Object Localization in Vision-Language Models",
           "url": "https://arxiv.org/pdf/2605.19792",
           "authors": ["T. Schaumlöffel", "M. G. Vilas", "G. Roig"],
           "links": [
-            { "label": "View", "url": "https://github.com/t9s9/vlm-object-localization" }
+            { "label": "ArXiv", "url": "https://arxiv.org/pdf/2605.19792" }
           ],
           "abstract": "Visually-grounded language models (VLMs) are highly effective in linking visual and textual information, yet they often struggle with basic classification and localization tasks. While classification mechanisms have been studied more extensively, the processes that support object localization remain poorly understood. In this work, we investigate two representative families, LLaVA-1.5 and InternVL-3.5, using a suite of mechanistic interpretability tools, including token ablations, attention knockout, and causal mediation analysis. We find that localization is driven by a containerization mechanism in which object-aligned tokens define the spatial extent of the object, while the semantic arrangement of tokens within those boundaries is largely irrelevant to the predicted box. Only a very small set of attention heads mediates the causal effect for both classification and localization, concentrating in early–mid layers for LLaVA and mid–late layers for InternVL. The two tasks share some early processing but ultimately depend on largely distinct specialized heads. Overall, we provide the first layer- and head-level account of localization in VLMs, revealing narrow computational pathways that can guide future model design and grounding objectives."
         },
@@ -98,6 +99,7 @@
           "venue": "ICLR",
           "year": 2026,
           "relevant": true,
+          "featured": true,
           "title": "Temporal Slowness in Central Vision Drives Semantic Object Learning",
           "url": "https://openreview.net/forum?id=tEezDE0vWt",
           "authors": ["T. Schaumlöffel*", "A. Aubret*", "G. Roig", "J. Triesch"],

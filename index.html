@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Timothy Schaumlöffel - Portfolio</title>
+<title>Timothy Schaumlöffel — Mechanistic Interpretability of Multimodal Models</title>
 <meta name="description" content="Timothy Schaumlöffel, PhD student working on mechanistic interpretability and evaluation of multimodal foundation models." />
 
 <link rel="canonical" href="https://t9s9.github.io/" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='38' fill='%23b54a25'/%3E%3Ctext x='50' y='62' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='36' font-weight='700' letter-spacing='1' fill='%23ffffff'%3ETS%3C/text%3E%3C/svg%3E" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Timothy Schaumlöffel - Portfolio" />
+<meta property="og:title" content="Timothy Schaumlöffel — Mechanistic Interpretability of Multimodal Models" />
 <meta property="og:description" content="Timothy Schaumlöffel, PhD student working on mechanistic interpretability and evaluation of multimodal foundation models." />
 <meta property="og:url" content="https://t9s9.github.io/" />
-<meta property="og:image" content="https://t9s9.github.io/assets/portrait.jpg" />
+<meta property="og:image" content="https://t9s9.github.io/assets/portrait.jpeg" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Timothy Schaumlöffel - Portfolio" />
+<meta name="twitter:title" content="Timothy Schaumlöffel — Mechanistic Interpretability of Multimodal Models" />
 <meta name="twitter:description" content="Timothy Schaumlöffel, PhD student working on mechanistic interpretability and evaluation of multimodal foundation models." />
-<meta name="twitter:image" content="https://t9s9.github.io/assets/portrait.jpg" />
+<meta name="twitter:image" content="https://t9s9.github.io/assets/portrait.jpeg" />
 
 <script type="application/ld+json">
 {
@@ -24,7 +24,7 @@
   "@type": "Person",
   "name": "Timothy Schaumlöffel",
   "url": "https://t9s9.github.io/",
-  "image": "https://t9s9.github.io/assets/portrait.jpg",
+  "image": "https://t9s9.github.io/assets/portrait.jpeg",
   "jobTitle": "PhD Student",
   "affiliation": { "@type": "Organization", "name": "Goethe University Frankfurt" },
   "sameAs": [
@@ -57,894 +57,84 @@
 
 <!-- Every section starts at opacity 0 and is revealed by IntersectionObserver.
      Without JS that would leave a blank page, so opt out wholesale. -->
-<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+<noscript><style>
+  .reveal { opacity: 1 !important; transform: none !important; }
+  /* The disclosure buttons need JS. Without it: show what they would have revealed,
+     drop the buttons, and let the grouping word in the heading read as plain type. */
+  .pub-abstract-body { display: block !important; }
+  .pub-authors-rest { display: inline !important; }
+  .pub-abstract-toggle, .pub-authors-toggle { display: none !important; }
+  .title-toggle { border-bottom: 0 !important; cursor: default !important; }
+</style></noscript>
 
-<style>
-  /* ---------- Fonts ---------- */
-  @font-face {
-    font-family: 'Fraunces';
-    font-style: italic;
-    font-weight: 300 700;
-    font-display: swap;
-    src: url(assets/fonts/fraunces-italic-latin.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Fraunces';
-    font-style: italic;
-    font-weight: 300 700;
-    font-display: swap;
-    src: url(assets/fonts/fraunces-italic-latin-ext.woff2) format('woff2');
-    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-  @font-face {
-    font-family: 'Fraunces';
-    font-style: normal;
-    font-weight: 300 700;
-    font-display: swap;
-    src: url(assets/fonts/fraunces-normal-latin.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Fraunces';
-    font-style: normal;
-    font-weight: 300 700;
-    font-display: swap;
-    src: url(assets/fonts/fraunces-normal-latin-ext.woff2) format('woff2');
-    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-  @font-face {
-    font-family: 'Inter Tight';
-    font-style: normal;
-    font-weight: 400 500;
-    font-display: swap;
-    src: url(assets/fonts/inter-tight-normal-latin.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'Inter Tight';
-    font-style: normal;
-    font-weight: 400 500;
-    font-display: swap;
-    src: url(assets/fonts/inter-tight-normal-latin-ext.woff2) format('woff2');
-    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-  @font-face {
-    font-family: 'JetBrains Mono';
-    font-style: normal;
-    font-weight: 400 500;
-    font-display: swap;
-    src: url(assets/fonts/jetbrains-mono-normal-latin.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-  }
-  @font-face {
-    font-family: 'JetBrains Mono';
-    font-style: normal;
-    font-weight: 400 500;
-    font-display: swap;
-    src: url(assets/fonts/jetbrains-mono-normal-latin-ext.woff2) format('woff2');
-    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-  }
-
-  /* ---------- Tokens ---------- */
-  :root {
-    --bg:        #f5f1e8;
-    --bg-soft:   #ede6d6;
-    --paper:    #fbf8f1;
-    --ink:      #1a1a1a;
-    --ink-soft: #4a4744;
-    --ink-mute: #6f6a60;          
-    --rule:     #d8cfb9;
-    --rule-strong: #8f8264;       /* borders on controls — meets 3:1 for non-text contrast */
-    --accent:   #b54a25;
-    --accent-soft: #d97a4a;
-    --shadow:   0 1px 0 rgba(26,26,26,.04);
-
-    --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
-    --sans:  "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --mono:  "JetBrains Mono", ui-monospace, Menlo, monospace;
-  }
-
-  [data-theme="dark"] {
-    --bg:       #15171a;
-    --bg-soft:  #1e2125;
-    --paper:    #1a1c1f;
-    --ink:      #ece7dc;
-    --ink-soft: #b8b3a8;
-    --ink-mute: #9a958a;          
-    --rule:     #2c2f33;
-    --rule-strong: #646b75;
-    --accent:   #e0926a;
-    --accent-soft: #f0a784;
-    --shadow:   0 1px 0 rgba(0,0,0,.3);
-  }
-
-  /* ---------- Reset ---------- */
-  *, *::before, *::after { box-sizing: border-box; }
-
-  /* Smooth scroll only when motion is OK */
-  @media (prefers-reduced-motion: no-preference) {
-    html { scroll-behavior: smooth; }
-  }
-
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 17px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
-  }
-  /* Only cross-fade once the page is up, so the initial theme paint is instant. */
-  html.theme-ready body { transition: background-color .4s ease, color .4s ease; }
-  a { color: inherit; text-decoration: none; transition: color .2s ease; }
-  a:hover { color: var(--accent); }
-  ::selection { background: var(--accent); color: var(--paper); }
-
-  /* Focus styles for keyboard users */
-  :focus { outline: none; }
-  :focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-    border-radius: 2px;
-  }
-
-  /* Announced to screen readers, invisible on screen */
-  .visually-hidden {
-    position: absolute;
-    width: 1px; height: 1px;
-    margin: -1px; padding: 0;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-    border: 0;
-  }
-
-  /* Skip link */
-  .skip-link {
-    position: absolute;
-    left: -9999px;
-    top: 0;
-    z-index: 999;
-    padding: .75rem 1.25rem;
-    background: var(--ink);
-    color: var(--bg);
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: .15em;
-    text-transform: uppercase;
-  }
-  .skip-link:focus {
-    left: 1rem;
-    top: 1rem;
-  }
-
-  /* Subtle paper grain */
-  body::before {
-    content: "";
-    position: fixed; inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    opacity: .35;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    mix-blend-mode: multiply;
-  }
-  [data-theme="dark"] body::before { mix-blend-mode: screen; opacity: .25; }
-
-  /* ---------- Layout ---------- */
-  .wrap {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 0 clamp(1.25rem, 4vw, 3rem);
-    position: relative;
-    z-index: 1;
-  }
-
-  /* ---------- Top bar ---------- */
-  header.top {
-    padding: 1.5rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-  }
-  .mark {
-    display: flex; align-items: baseline; gap: .6rem;
-  }
-  .mark-dot {
-    display: inline-block;
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--accent);
-    transform: translateY(-1px);
-  }
-  nav.topnav { display: flex; gap: 1.5rem; }
-  nav.topnav a:hover { color: var(--ink); }
-
-  .theme-toggle {
-    background: transparent;
-    border: 1px solid var(--rule-strong);
-    border-radius: 999px;
-    width: 44px; height: 44px;         
-    cursor: pointer;
-    color: var(--ink);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: all .25s ease;
-  }
-  .theme-toggle:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-    transform: rotate(15deg);
-  }
-  .theme-toggle svg { width: 16px; height: 16px; }
-  .theme-toggle .sun { display: none; }
-  [data-theme="dark"] .theme-toggle .sun { display: block; }
-  [data-theme="dark"] .theme-toggle .moon { display: none; }
-
-  /* ---------- Hero ---------- */
-  .hero {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: clamp(2rem, 5vw, 4.5rem);
-    align-items: end;
-    padding: clamp(3rem, 8vw, 6rem) 0 clamp(2rem, 5vw, 4rem);
-    border-bottom: 1px solid var(--rule);
-    position: relative;
-  }
-
-  h1.name {
-    font-family: var(--serif);
-    font-weight: 700;
-    font-size: clamp(3rem, 8.2vw, 7rem);
-    line-height: .95;
-    letter-spacing: -.02em;
-    margin: 0 0 1.75rem;
-    font-variation-settings: "opsz" 144;
-  }
-  /* Two-tone name by style alone: roman surname-line against italic, same family, same ink.
-     Colour is no longer spent here, so the accent belongs to interactive states only. */
-  h1.name .surname {
-    font-style: italic;
-    font-weight: 600;
-  }
-
-  /* Sans against the serif name, and emphasis by weight rather than colour — the accent
-     stays a single moment in the hero (the surname). Mirrors `.about-prose strong`. */
-  .hero-tag {
-    font-family: var(--sans);
-    font-size: clamp(1.05rem, 1.5vw, 1.3rem);
-    font-weight: 400;
-    line-height: 1.55;
-    color: var(--ink-soft);
-    max-width: 42ch;
-    margin: 0 0 2rem;
-  }
-  .hero-tag strong { color: var(--ink); font-weight: 500; }
-
-  .hero-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.25rem 2rem;
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: .04em;
-    color: var(--ink-mute);
-    text-transform: uppercase;
-  }
-  .hero-meta a { display: inline-flex; align-items: center; gap: .45rem; }
-  .hero-meta a:hover { color: var(--ink); }
-  .hero-meta svg { width: 13px; height: 13px; opacity: .7; }
-
-  .portrait {
-    position: relative;
-    aspect-ratio: 1 / 1;
-    max-width: 240px;
-    margin-left: auto;
-    border: 1px solid var(--rule);
-    background: var(--paper);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    border-radius: 30%;
-  }
-  .portrait::after {
-    content: "";
-    position: absolute; inset: 0;
-    background:
-      linear-gradient(135deg, transparent 60%, rgba(181,74,37,.08) 100%);
-    pointer-events: none;
-  }
-  .portrait img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-    filter: grayscale(20%) contrast(1.02);
-  }
-  .portrait .ph {
-    position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: .75rem;
-    color: var(--ink-mute);
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .15em;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 1rem;
-  }
-  .portrait .ph svg { width: 56px; height: 56px; opacity: .35; }
-
-  /* ---------- Sections ---------- */
-  section.block {
-    padding: clamp(3rem, 7vw, 5.5rem) 0;
-    border-bottom: 1px solid var(--rule);
-    position: relative;
-  }
-  .section-head {
-    margin-bottom: 2.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 1rem 2rem;
-  }
-  h2.section-title {
-    font-family: var(--serif);
-    font-weight: 350;
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    line-height: 1.1;
-    letter-spacing: -.01em;
-    margin: 0;
-    min-width: 0;
-  }
-  h2.section-title em { font-style: italic; color: var(--accent); }
-
-  /* A word in the heading that behaves like a switch — reads as type, not chrome. */
-  .title-toggle {
-    font: inherit;
-    font-style: italic;
-    color: var(--accent);
-    background: none;
-    border: 0;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-    border-bottom: 1px dashed var(--accent);
-    border-bottom-color: color-mix(in srgb, var(--accent) 55%, transparent);
-    transition: border-bottom-color .2s ease, opacity .2s ease;
-  }
-  .title-toggle:hover { border-bottom-style: solid; border-bottom-color: var(--accent); }
-  .title-toggle:active { opacity: .7; }
-
-  /* ---------- About ---------- */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 2rem;
-  }
-  .about-grid .col-meta { font-family: var(--mono); font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--ink-mute); }
-  .about-prose {
-    max-width: 64ch;
-    color: var(--ink-soft);
-  }
-  .about-prose p { margin: 0 0 1.2em; }
-  .about-prose strong { color: var(--ink); font-weight: 500; }
-  /* Prose links point at papers/labs — give them a visible affordance. */
-  .about-prose a { border-bottom: 1px solid var(--rule); }
-  .about-prose a:hover { color: var(--accent); border-color: var(--accent); }
-
-  .pull-quote {
-    margin: 2.25rem 0 0;
-    padding: 1.5rem 0 1.5rem 1.75rem;
-    border-left: 2px solid var(--accent);
-    font-family: var(--serif);
-    font-style: italic;
-    font-weight: 350;
-    font-size: 1.35rem;
-    line-height: 1.4;
-    color: var(--ink);
-    max-width: 50ch;
-  }
-
-  .keyword-row {
-    margin-top: 2.25rem;
-    display: flex; flex-wrap: wrap; gap: .5rem;
-  }
-  .kw {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    padding: .4rem .7rem;
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    color: var(--ink-soft);
-  }
-
-  /* ---------- Publications ---------- */
-  /* Segmented control: relevant papers by default, everything on request. */
-  .pub-filter {
-    display: inline-flex;
-    padding: 3px;
-    border: 1px solid var(--rule-strong);
-    border-radius: 999px;
-    background: var(--paper);
-    box-shadow: var(--shadow);
-    flex: none;
-  }
-  .pub-filter[hidden] { display: none; }   /* class beats the UA [hidden] rule */
-  .pub-filter button {
-    display: inline-flex;
-    align-items: baseline;
-    gap: .4rem;
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
-    white-space: nowrap;
-    padding: .45rem .95rem;
-    border: 0;
-    border-radius: 999px;
-    background: none;
-    color: var(--ink-mute);
-    cursor: pointer;
-    transition: color .2s ease, background-color .25s ease;
-  }
-  .pub-filter button:hover { color: var(--ink); }
-  .pub-filter button[aria-pressed="true"] {
-    background: var(--accent);
-    color: var(--paper);
-  }
-  .pub-filter .count {
-    font-size: 10px;
-    letter-spacing: .06em;
-    opacity: .65;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .pub-group { margin-bottom: 2.75rem; }
-  .pub-group:last-child { margin-bottom: 0; }
-  .pub-group-title {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: .25em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0 0 1.25rem;
-    padding-bottom: .6rem;
-    border-bottom: 1px solid var(--rule);
-    display: flex; align-items: center; gap: .75rem;
-  }
-
-  .pub {
-    display: grid;
-    grid-template-columns: 130px 1fr;
-    gap: 1.5rem;
-    padding: 1.1rem 0;
-    border-bottom: 1px dashed var(--rule);
-    transition: padding-left .25s ease;
-  }
-  .pub:last-child, .pub.highlight:last-child { border-bottom: none; }
-  .pub:hover { padding-left: .35rem; }
-  .pub:hover .pub-title { color: var(--accent); }
-
-  .venue {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    padding-top: .35rem;
-  }
-  .venue strong {
-    color: var(--ink);
-    font-weight: 500;
-    display: block;
-    margin-bottom: .15rem;
-  }
-  .venue-tag {
-    display: inline-block;
-    padding: .15rem .45rem;
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    font-size: 10px;
-  }
-
-  .pub-title {
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: 1.05rem;
-    line-height: 1.4;
-    margin: 0 0 .35rem;
-    color: var(--ink);
-    transition: color .2s ease;
-    font-variation-settings: "opsz" 36;
-  }
-  .pub-authors {
-    font-size: .92rem;
-    color: var(--ink-soft);
-    line-height: 1.5;
-  }
-  .pub-authors b { color: var(--ink); font-weight: 500; }
-  .pub-link {
-    display: inline-flex;
-    align-items: center;
-    gap: .35rem;
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .15em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    margin-top: .5rem;
-    border-bottom: 1px solid transparent;
-  }
-  .pub-link:hover {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-  }
-  .pub-link svg { width: 11px; height: 11px; }
-
-  .pub-note {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .05em;
-    color: var(--ink-mute);
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px dashed var(--rule);
-  }
-
-  .pub-status {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: .05em;
-    color: var(--ink-mute);
-    margin: 0;
-  }
-  .pub-status a { border-bottom: 1px solid var(--rule); }
-  .pub-status a:hover { border-color: var(--accent); }
-
-  /* Highlight pub */
-  .pub.highlight {
-    background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 6%, transparent), transparent 60%);
-    margin: .35rem -1rem;
-    padding: 1.25rem 1rem;
-    border-left: 2px solid var(--accent);
-    border-bottom: 1px dashed var(--rule);
-  }
-  .highlight-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: .35rem;
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color: var(--paper);
-    background: var(--accent);
-    padding: .25rem .55rem .3rem;
-    border-radius: 2px;
-    margin-bottom: .55rem;
-    line-height: 1;
-  }
-  [data-theme="dark"] .highlight-badge { color: #15171a; }
-  .highlight-badge svg { width: 11px; height: 11px; }
-
-  /* ---------- Selected work ---------- */
-  .work-grid {
-    display: grid;
-    /* Fills the row rather than orphaning the third card at half width. */
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.25rem;
-  }
-  .work-card {
-    border: 1px solid var(--rule);
-    background: var(--paper);
-    padding: 1.5rem 1.5rem 1.4rem;
-    transition: all .25s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .work-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 2px;
-    background: var(--accent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform .35s ease;
-  }
-  .work-card:hover {
-    border-color: var(--ink);
-    transform: translateY(-2px);
-  }
-  .work-card:hover::before { transform: scaleX(1); }
-  .work-tag {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  .work-title {
-    font-family: var(--serif);
-    font-size: 1.25rem;
-    font-weight: 400;
-    margin: .5rem 0 .6rem;
-    line-height: 1.3;
-  }
-  .work-desc {
-    font-size: .92rem;
-    color: var(--ink-soft);
-    margin: 0 0 1rem;
-  }
-  .work-link {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .15em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 2px;
-  }
-  .work-link:hover { color: var(--accent); border-color: var(--accent); }
-
-  /* ---------- CTA Button ---------- */
-  .cta {
-    display: inline-flex;
-    align-items: center;
-    gap: .9rem;
-    padding: 1rem 1.6rem 1rem 1.8rem;
-    background: var(--ink);
-    color: var(--bg);
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    border-radius: 2px;
-    border: 1px solid var(--ink);
-    transition: all .25s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .cta:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--paper);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px -8px rgba(181,74,37,.5);
-  }
-  .cta svg {
-    width: 16px; height: 16px;
-    transition: transform .25s ease;
-  }
-  .cta:hover svg { transform: translateX(4px); }
-  [data-theme="dark"] .cta:hover { color: #15171a; }
-
-  /* ---------- Footer / Contact ---------- */
-  footer.foot {
-    padding: clamp(3rem, 7vw, 5rem) 0 2.5rem;
-    position: relative;
-  }
-  .foot-headline {
-    font-family: var(--serif);
-    font-weight: 350;
-    font-style: italic;
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    line-height: 1.15;
-    letter-spacing: -.01em;
-    max-width: 22ch;
-    margin: 0 0 1.75rem;
-  }
-  .foot-headline a {
-    border-bottom: 1px solid var(--accent);
-    color: var(--accent);
-  }
-  .foot-headline a:hover { background: var(--accent); color: var(--paper); }
-
-  .foot-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: 4rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--rule);
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    flex-wrap: wrap; gap: 1rem;
-  }
-  .foot-meta a:hover { color: var(--accent); }
-  /* Nods to the "* denotes shared first authorship" footnote in the publication list. */
-  .foot-credit { text-align: right; }
-  .foot-credit a { border-bottom: 1px solid var(--rule); }
-  .foot-credit a:hover { border-color: var(--accent); }
-  .foot-star { color: var(--accent); }
-
-  /* ---------- Responsive ---------- */
-  @media (max-width: 820px) {
-    .hero {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-      align-items: start;
-    }
-    .portrait { max-width: 180px; margin-left: auto; margin-right: auto; }
-    .hero-meta { gap: .75rem 1.25rem; }
-
-    /* Nav drops to its own full-width row instead of disappearing. */
-    header.top { flex-wrap: wrap; row-gap: .9rem; }
-    nav.topnav {
-      order: 3;
-      width: 100%;
-      gap: 1.25rem;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-    nav.topnav::-webkit-scrollbar { display: none; }
-    nav.topnav a { white-space: nowrap; }
-    /* Single column: the affiliation meta repeats the first line of the prose, so drop it. */
-    .about-grid { grid-template-columns: 1fr; gap: .75rem; }
-    .about-grid .col-meta { display: none; }
-    /* Venue becomes an eyebrow above the title: one line, accent name, room below. */
-    .pub { grid-template-columns: 1fr; gap: 0; }
-    .venue {
-      padding-top: 0;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: .55rem;
-      margin-bottom: .75rem;
-    }
-    .venue strong {
-      display: inline;
-      margin-bottom: 0;
-      color: var(--accent);
-    }
-    .work-grid { grid-template-columns: 1fr; }
-  }
-
-  /* ---------- Scroll-to-top ---------- */
-  .back-to-top {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 100;
-    width: 44px; height: 44px;
-    background: var(--ink);
-    color: var(--bg);
-    border: 1px solid var(--ink);
-    border-radius: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .3s ease, background .25s ease, border-color .25s ease, transform .25s ease;
-  }
-  .back-to-top.visible {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .back-to-top:hover {
-    background: var(--accent);
-    border-color: var(--accent);
-    transform: translateY(-3px);
-  }
-  .back-to-top svg { width: 16px; height: 16px; }
-
-  /* ---------- Reveal anim ---------- */
-  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
-  .reveal.in { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-  }
-
-  /* ---------- Abstract toggle ---------- */
-  .pub-actions {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-top: .6rem;
-  }
-  .pub-actions .pub-link { margin-top: 0; }
-  .pub-abstract-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: .4rem;
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .15em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    cursor: pointer;
-    background: none;
-    border: none;
-    border-bottom: 1px solid transparent;
-    padding: 0;
-    transition: color .2s ease, border-bottom-color .2s ease;
-  }
-  .pub-abstract-toggle:hover { color: var(--accent); border-bottom-color: var(--accent); }
-  .pub-abstract-toggle[aria-expanded="true"] { color: var(--ink); }
-  .pub-abstract-toggle .chev {
-    width: 10px; height: 10px;
-    transition: transform .2s ease;
-    flex-shrink: 0;
-  }
-  .pub-abstract-toggle[aria-expanded="true"] .chev { transform: rotate(180deg); }
-  .pub-abstract-body {
-    margin-top: .65rem;
-    padding: .8rem 0 .8rem 1rem;
-    border-left: 2px solid var(--rule);
-    font-size: .875rem;
-    color: var(--ink-soft);
-    line-height: 1.65;
-    max-width: 64ch;
-    margin-bottom: 0;
-    text-align: justify;
-    hyphens: auto;
-  }
-
-  /* ---------- Author list toggle ---------- */
-  .pub-authors-toggle {
-    font: inherit;
-    font-style: italic;
-    background: none;
-    border: 0;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-    color: var(--ink-mute);
-    text-underline-offset: 2px;
-    transition: color .2s ease;
-  }
-  .pub-authors-toggle:hover { color: var(--accent); text-decoration: underline; }
-  .pub-authors-toggle .fewer { display: none; }
-  .pub-authors-toggle[aria-expanded="true"] .et-al { display: none; }
-  .pub-authors-toggle[aria-expanded="true"] .fewer { display: inline; }
-</style>
+<!-- One file per concern, loaded in cascade order: fonts and tokens first, then
+     the shared base, then one stylesheet per section of the page. No build step —
+     these are linked as-is. -->
+<link rel="stylesheet" href="styles/fonts.css" />
+<link rel="stylesheet" href="styles/tokens.css" />
+<link rel="stylesheet" href="styles/base.css" />
+<link rel="stylesheet" href="styles/header.css" />
+<link rel="stylesheet" href="styles/hero.css" />
+<link rel="stylesheet" href="styles/sections.css" />
+<link rel="stylesheet" href="styles/about.css" />
+<link rel="stylesheet" href="styles/publications.css" />
+<link rel="stylesheet" href="styles/work.css" />
+<link rel="stylesheet" href="styles/footer.css" />
 </head>
 <body>
 
 <a class="skip-link" href="#main-content">Skip to content</a>
 
-<div class="wrap">
-  <!-- ============ TOP ============ -->
-  <header class="top">
+<!-- ============ TOP ============ -->
+<!-- The bar sits outside .wrap so that, once pinned, its backdrop runs the full
+     width of the viewport instead of stopping at the 1180px gutter. The sentinel
+     above it is what tells the script the bar has left the top of the page. -->
+<div class="top-sentinel" aria-hidden="true"></div>
+<header class="top" id="siteHeader">
+  <div class="wrap top-inner">
     <div class="mark">
       <span class="mark-dot" aria-hidden="true"></span>
       <span>Timothy&nbsp;Schaumlöffel</span>
     </div>
-    <nav class="topnav" aria-label="Section navigation">
+    <nav class="topnav" id="topnav" aria-label="Section navigation">
+      <!-- Sliding marker for the section currently on screen; positioned by JS
+           from the active link's box, so it needs no per-link markup. -->
+      <span class="topnav-thumb" aria-hidden="true"></span>
       <a href="#about">About</a>
       <a href="#publications">Publications</a>
       <a href="#work">Work</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button class="theme-toggle" id="themeToggle" aria-label="Dark mode" aria-pressed="false">
-      <svg class="moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-      <svg class="sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-    </button>
-  </header>
+    <div class="bar-actions">
+      <!-- Same file and filename as the hero button; this one stays reachable
+           once the hero has scrolled away. -->
+      <a class="bar-btn cv-bar-btn" href="assets/cv_schaumloeffel.pdf" download="cv_schaumloeffel.pdf"
+         aria-label="Download CV" title="Download CV">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>
+        <span class="cv-bar-label" aria-hidden="true">CV</span>
+      </a>
+      <button class="bar-btn theme-toggle" id="themeToggle" aria-label="Dark mode" aria-pressed="false">
+        <svg class="moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
 
+<div class="wrap">
   <main id="main-content" tabindex="-1">
   <!-- ============ HERO ============ -->
   <section class="hero reveal" aria-labelledby="hero-name">
     <div>
       <h1 class="name" id="hero-name">Timothy<br/><span class="surname">Schaumlöffel</span></h1>
       <p class="hero-tag">PhD student at Goethe University Frankfurt working on <strong>mechanistic interpretability</strong> and evaluation of multimodal foundation models.</p>
+      <!-- CV first, then the profiles: one row, so every route to the work
+           sits on the same line. -->
       <div class="hero-meta">
+        <a class="cv-btn" href="assets/cv_schaumloeffel.pdf" download="cv_schaumloeffel.pdf">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>
+          <span>Download CV</span>
+        </a>
         <a href="mailto:schaumloeffel.tim@web.de">
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4z"/><path d="m4 4 8 8 8-8"/></svg>
           Email
@@ -966,7 +156,7 @@
 
     <div>
       <div class="portrait">
-        <img src="assets/portrait.jpg" alt="Portrait of Timothy Schaumlöffel" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <img src="assets/portrait.png" alt="Portrait of Timothy Schaumlöffel" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
         <div class="ph" style="display:none;" aria-hidden="true">
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M3 21c0-4.5 4-7 9-7s9 2.5 9 7"/></svg>
         </div>
@@ -1034,15 +224,162 @@
       </div>
     </div>
 
-    <!-- Rendered from publications.json — edit that file to add or change papers. -->
-    <div id="pub-list" aria-busy="true">
-      <p class="pub-status">Loading publications…</p>
+    <!-- Built from publications.json by tools/build-publications.mjs, so the papers are
+         in the served HTML rather than appearing only once a fetch resolves. Edit the
+         JSON, then re-run the script — never edit between the markers by hand. -->
+    <div id="pub-list">
+<!-- publications:begin — generated by tools/build-publications.mjs from publications.json; do not edit by hand -->
+      <div class="pub-group">
+        <h3 class="pub-group-title">Vision &amp; Multimodal Models</h3>
+        
+      <article class="pub">
+        <div class="venue">
+          <strong>Preprint</strong><span class="venue-tag">2026</span>
+        </div>
+        <div>
+          
+          <h4 class="pub-title"><a href="https://arxiv.org/pdf/2603.26731" target="_blank" rel="noopener">Contextual Inference from Single Objects in Vision-Language Models</a></h4>
+          <div class="pub-authors"><b>T. Schaumlöffel*</b>, M. G. Vilas*, G. Roig</div>
+          <div class="pub-actions">
+            <button class="pub-abstract-toggle" aria-expanded="false" aria-controls="abs-0-2">Abstract <svg class="chev" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+            <a class="pub-link" href="https://arxiv.org/pdf/2603.26731" target="_blank" rel="noopener">ArXiv <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          </div>
+          <p class="pub-abstract-body" id="abs-0-2" hidden>How much scene context a single object carries is a well-studied question in human scene perception, yet how this capacity is organized in vision-language models (VLMs) remains poorly understood, with direct implications for the robustness of these models. We investigate this question through a systematic behavioral and mechanistic analysis of contextual inference from single objects. Presenting VLMs with single objects on masked backgrounds, we probe their ability to infer both fine-grained scene category and coarse superordinate context (indoor vs. outdoor). We found that single objects support above-chance inference at both levels, with performance modulated by the same object properties that predict human scene categorization. Object identity, scene, and superordinate predictions are partially dissociable: accurate inference at one level neither requires nor guarantees accurate inference at the others, and the degree of coupling differs markedly across models. Mechanistically, object representations that remain stable when background context is removed are more predictive of successful contextual inference. Scene and superordinate schemas are grounded in fundamentally different ways: scene identity is encoded in image tokens throughout the network, while superordinate information emerges only late or not at all. Together, these results reveal that the organization of contextual inference in VLMs is more complex than accuracy alone suggests, with behavioral and mechanistic signatures dissociating in ways that differ substantially across models.</p>
+        </div>
+      </article>
+      <article class="pub highlight">
+        <div class="venue">
+          <strong>CVPR</strong><span class="venue-tag">2026</span>
+        </div>
+        <div>
+          <span class="highlight-badge"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.7 6.5L22 9.3l-5.5 4.7L18 21l-6-3.4L6 21l1.5-7L2 9.3l7.3-.8L12 2z"/></svg> Highlight</span>
+          <h4 class="pub-title"><a href="https://arxiv.org/pdf/2605.19792" target="_blank" rel="noopener">Mechanisms of Object Localization in Vision-Language Models</a></h4>
+          <div class="pub-authors"><b>T. Schaumlöffel</b>, M. G. Vilas, G. Roig</div>
+          <div class="pub-actions">
+            <button class="pub-abstract-toggle" aria-expanded="false" aria-controls="abs-0-3">Abstract <svg class="chev" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+            <a class="pub-link" href="https://arxiv.org/pdf/2605.19792" target="_blank" rel="noopener">ArXiv <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          </div>
+          <p class="pub-abstract-body" id="abs-0-3" hidden>Visually-grounded language models (VLMs) are highly effective in linking visual and textual information, yet they often struggle with basic classification and localization tasks. While classification mechanisms have been studied more extensively, the processes that support object localization remain poorly understood. In this work, we investigate two representative families, LLaVA-1.5 and InternVL-3.5, using a suite of mechanistic interpretability tools, including token ablations, attention knockout, and causal mediation analysis. We find that localization is driven by a containerization mechanism in which object-aligned tokens define the spatial extent of the object, while the semantic arrangement of tokens within those boundaries is largely irrelevant to the predicted box. Only a very small set of attention heads mediates the causal effect for both classification and localization, concentrating in early–mid layers for LLaVA and mid–late layers for InternVL. The two tasks share some early processing but ultimately depend on largely distinct specialized heads. Overall, we provide the first layer- and head-level account of localization in VLMs, revealing narrow computational pathways that can guide future model design and grounding objectives.</p>
+        </div>
+      </article>
+      <article class="pub">
+        <div class="venue">
+          <strong>NeurIPS</strong><span class="venue-tag">2025</span>
+        </div>
+        <div>
+          
+          <h4 class="pub-title"><a href="https://openreview.net/forum?id=JaD7C4Kldz" target="_blank" rel="noopener">Uncovering Object Localization Mechanisms in VLMs</a></h4>
+          <div class="pub-authors"><b>T. Schaumlöffel</b>, M. G. Vilas, G. Roig · <em>Mechanistic Interpretability Workshop</em></div>
+          <div class="pub-actions">
+            <button class="pub-abstract-toggle" aria-expanded="false" aria-controls="abs-0-4">Abstract <svg class="chev" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+            <a class="pub-link" href="https://openreview.net/forum?id=JaD7C4Kldz" target="_blank" rel="noopener">OpenReview <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          </div>
+          <p class="pub-abstract-body" id="abs-0-4" hidden>Visually-grounded language models (VLMs) are highly effective in linking visual and textual information, yet they often struggle with basic classification and localization tasks. While classification mechanisms have been studied more extensively, the processes that support object detection remain less clear. In this work, we analyze foundational VLMs and show that image tokens corresponding to the object directly contain the information required for localization. We find that the model applies a containerization mechanism: it uses object-related tokens to define spatial boundaries, while largely discarding semantic context. Our analysis further reveals that this information is processed in the early to middle layers of the language model and that classification and detection rely on shared mechanisms. Finally, we demonstrate that spatial grounding does not come solely from positional encodings in the visual backbone, but rather from residual positional signals combined with the language model&#39;s ability to infer spatial order from token sequences.</p>
+        </div>
+      </article>
+      <article class="pub">
+        <div class="venue">
+          <strong>NeurIPS</strong><span class="venue-tag">2023</span>
+        </div>
+        <div>
+          
+          <h4 class="pub-title"><a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/7dd309df03d37643b96f5048b44da798-Paper-Conference.pdf" target="_blank" rel="noopener">Analyzing Vision Transformers for Image Classification in Class Embedding Space</a></h4>
+          <div class="pub-authors">M. G. Vilas, <b>T. Schaumlöffel</b>, G. Roig</div>
+          <div class="pub-actions">
+            <button class="pub-abstract-toggle" aria-expanded="false" aria-controls="abs-0-5">Abstract <svg class="chev" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+            <a class="pub-link" href="https://proceedings.neurips.cc/paper_files/paper/2023/file/7dd309df03d37643b96f5048b44da798-Paper-Conference.pdf" target="_blank" rel="noopener">Proceedings <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          </div>
+          <p class="pub-abstract-body" id="abs-0-5" hidden>Despite the growing use of transformer models in computer vision, a mechanistic understanding of these networks is still needed. This work introduces a method to reverse-engineer Vision Transformers trained to solve image classification tasks. Inspired by previous research in NLP, we demonstrate how the inner representations at any level of the hierarchy can be projected onto the learned class embedding space to uncover how these networks build categorical representations for their predictions. We use our framework to show how image tokens develop class-specific representations that depend on attention mechanisms and contextual information, and give insights on how self-attention and MLP layers differentially contribute to this categorical composition. We additionally demonstrate that this method (1) can be used to determine the parts of an image that would be important for detecting the class of interest, and (2) exhibits significant advantages over traditional linear probing approaches. Taken together, our results position our proposed framework as a powerful tool for mechanistic interpretability and explainability research.</p>
+        </div>
+      </article>
+      </div>
+      <div class="pub-group">
+        <h3 class="pub-group-title">Bio-Inspired Representation Learning</h3>
+        
+      <article class="pub highlight">
+        <div class="venue">
+          <strong>ICLR</strong><span class="venue-tag">2026</span>
+        </div>
+        <div>
+          
+          <h4 class="pub-title"><a href="https://openreview.net/forum?id=tEezDE0vWt" target="_blank" rel="noopener">Temporal Slowness in Central Vision Drives Semantic Object Learning</a></h4>
+          <div class="pub-authors"><b>T. Schaumlöffel*</b>, A. Aubret*, G. Roig, J. Triesch</div>
+          <div class="pub-actions">
+            <button class="pub-abstract-toggle" aria-expanded="false" aria-controls="abs-1-0">Abstract <svg class="chev" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+            <a class="pub-link" href="https://openreview.net/forum?id=tEezDE0vWt" target="_blank" rel="noopener">OpenReview <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          </div>
+          <p class="pub-abstract-body" id="abs-1-0" hidden>Humans acquire semantic object representations from egocentric visual streams with minimal supervision, but the underlying mechanisms remain unclear. Importantly, the visual system only processes the center of its field of view with high resolution and it learns similar representations for visual inputs occurring close in time. This emphasizes slowly changing information around gaze locations. This study investigates the role of central vision and slowness learning in the formation of semantic object representations from human-like visual experience. We simulate five months of human-like visual experience using the Ego4D dataset and a state-of-the-art gaze prediction model. We extract image crops around predicted gaze locations to train a time-contrastive Self-Supervised Learning model. Our results show that exploiting temporal slowness when learning from central visual field experience improves the encoding of different facets of object semantics. Specifically, focusing on central vision strengthens the extraction of foreground object features, while considering temporal slowness, especially in conjunction with eye movements, allows the model to encode broader semantic information about objects. These findings provide new insights into the mechanisms by which humans may develop semantic object representations from natural visual experience.</p>
+        </div>
+      </article>
+      <article class="pub">
+        <div class="venue">
+          <strong>ICDL</strong><span class="venue-tag">2024</span>
+        </div>
+        <div>
+          
+          <h4 class="pub-title"><a href="https://ieeexplore.ieee.org/document/10644930" target="_blank" rel="noopener">Learning Object Semantic Similarity with Self-Supervision</a></h4>
+          <div class="pub-authors"><b>T. Schaumlöffel*</b>, A. Aubret*, G. Roig, J. Triesch</div>
+          <div class="pub-actions">
+            <button class="pub-abstract-toggle" aria-expanded="false" aria-controls="abs-1-1">Abstract <svg class="chev" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+            <a class="pub-link" href="https://ieeexplore.ieee.org/document/10644930" target="_blank" rel="noopener">IEEE <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          </div>
+          <p class="pub-abstract-body" id="abs-1-1" hidden>Humans judge the similarity of two objects not just based on their visual appearance but also based on their semantic relatedness. However, it remains unclear how humans learn about semantic relationships between objects and categories. One important source of semantic knowledge is that semantically related objects frequently co-occur in the same context. For instance, forks and plates are perceived as similar, at least in part, because they are often experienced together in a &quot;kitchen&quot; or &quot;eating&quot; context. Here, we investigate whether a bio-inspired learning principle exploiting such co-occurrence statistics suffices to learn a semantically structured object representation de novo from raw visual or combined visual and linguistic input. To this end, we simulate temporal sequences of visual experience by binding together short video clips of real-world scenes showing objects in different contexts. A bio-inspired neural network model aligns close-in-time visual representations while also aligning visual and category label representations to simulate visuo-language alignment. Our results show that our model clusters object representations based on their context, e.g. kitchen or bedroom, in particular in high-level layers of the network, akin to humans. In contrast, lower-level layers tend to better reflect object identity or category. To achieve this, the model exploits two distinct strategies: the visuo-language alignment ensures that different objects of the same category are represented similarly, whereas the temporal alignment leverages that objects from the same context are frequently seen in succession to make their representations more similar. Overall, our work suggests temporal and visuo-language alignment as plausible computational principles for explaining the origins of certain forms of semantic knowledge in humans.</p>
+        </div>
+      </article>
+      <article class="pub">
+        <div class="venue">
+          <strong>ICDL</strong><span class="venue-tag">2023</span>
+        </div>
+        <div>
+          <span class="highlight-badge"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.7 6.5L22 9.3l-5.5 4.7L18 21l-6-3.4L6 21l1.5-7L2 9.3l7.3-.8L12 2z"/></svg> Best Paper Candidate</span>
+          <h4 class="pub-title"><a href="https://ieeexplore.ieee.org/document/10364409" target="_blank" rel="noopener">Caregiver Talk Shapes Toddler Vision: A Computational Study of Dyadic Play</a></h4>
+          <div class="pub-authors"><b>T. Schaumlöffel*</b>, A. Aubret*, G. Roig, J. Triesch</div>
+          <div class="pub-actions">
+            <button class="pub-abstract-toggle" aria-expanded="false" aria-controls="abs-1-2">Abstract <svg class="chev" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+            <a class="pub-link" href="https://ieeexplore.ieee.org/document/10364409" target="_blank" rel="noopener">IEEE <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          </div>
+          <p class="pub-abstract-body" id="abs-1-2" hidden>Infants&#39; ability to recognize and categorize objects develops gradually. The second year of life is marked by both the emergence of more semantic visual representations and a better understanding of word meaning. This suggests that language input may play an important role in shaping visual representations. However, even in suitable contexts for word learning like dyadic play sessions, caregivers utterances are sparse and ambiguous, often referring to objects that are different from the one to which the child attends. Here, we systematically investigate to what extent caregivers&#39; utterances can nevertheless enhance visual representations. For this we propose a computational model of visual representation learning during dyadic play. We introduce a synthetic dataset of ego-centric images perceived by a toddler-agent that moves and rotates toy objects in different parts of its home environment while &quot;hearing&quot; caregivers&#39; utterances, modeled as captions. We propose to model toddlers&#39; learning as simultaneously aligning representations for 1) close-in-time images and 2) co-occurring images and utterances. We show that utterances with statistics matching those of real caregivers give rise to representations supporting improved category recognition. Our analysis reveals that a small decrease/increase in object-relevant naming frequencies can drastically impact the learned representations. This affects the attention on object names within an utterance, which is required for efficient visuo-linguistic alignment. Overall, our results support the hypothesis that caregivers&#39; naming utterances can improve toddlers&#39; visual representations.</p>
+        </div>
+      </article>
+      </div>
+      <div class="pub-group">
+        <h3 class="pub-group-title">Neuro-AI &amp; Model Alignment</h3>
+        
+      <article class="pub">
+        <div class="venue">
+          <strong>CCN</strong><span class="venue-tag">2026</span>
+        </div>
+        <div>
+          
+          <h4 class="pub-title"><a href="https://openreview.net/pdf?id=m1dF6mmYSn" target="_blank" rel="noopener">Vision Models Capture Complementary Representations in Children That Converge in Adults</a></h4>
+          <div class="pub-authors">D. Bersch, <b>T. Schaumlöffel</b>, M. Proietti, A. Franaszek-Traczewska<span class="pub-authors-rest" id="authors-2-0" hidden>, H. Zwad, S. Xie, M. Baldauf, T. Sylvester, C. Schätz, M. Köster, S. Höhl, B. Turtleton, R. M. Cichy, G. Roig</span><button class="pub-authors-toggle" aria-expanded="false" aria-controls="authors-2-0" aria-label="Toggle full author list"><span class="et-al">, et al.</span><span class="fewer"> · show less</span></button></div>
+          <div class="pub-actions">
+            <button class="pub-abstract-toggle" aria-expanded="false" aria-controls="abs-2-0">Abstract <svg class="chev" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+            <a class="pub-link" href="https://openreview.net/pdf?id=m1dF6mmYSn" target="_blank" rel="noopener">Open Review <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          </div>
+          <p class="pub-abstract-body" id="abs-2-0" hidden>How the relationship between image-text aligned and vision-only models changes across development remains unknown. To address this, we applied time-resolved representational similarity analysis to EEG data from 8-year-olds, 12-year-olds, and adults. Commonality analysis showed complementary structure for image-text aligned versus vision-only models at 8 years, near-zero shared variance at 12 years, and greater overlap in adults, while both retained unique variance at all ages. This pattern generalized across model pairings, whereas vision-only model pairs showed overlapping variance at every age, suggesting a double dissociation. Within-category structure appeared complementary even in adults, suggesting that image-text aligned training may capture fine-grained structure not recovered by vision-only training. Together, these findings suggest that image-text aligned and vision-only models capture distinct aspects of visual representations that become more aligned in adulthood, and that vision-only models alone may miss structure relevant for developmental model-brain alignment.</p>
+        </div>
+      </article>
+      <article class="pub">
+        <div class="venue">
+          <strong>Frontiers</strong><span class="venue-tag">Neuroinformatics</span>
+        </div>
+        <div>
+          
+          <h4 class="pub-title"><a href="https://www.frontiersin.org/journals/neuroinformatics/articles/10.3389/fninf.2025.1515873/full" target="_blank" rel="noopener">Net2Brain: A Toolbox to Compare Artificial Vision Models with Human Brain Responses</a></h4>
+          <div class="pub-authors">D. Bersch, M. G. Vilas, S. Saba-Sadiya, <b>T. Schaumlöffel</b><span class="pub-authors-rest" id="authors-2-1" hidden>, K. Dwivedi, C. Sartzetaki, R. M. Cichy, G. Roig</span><button class="pub-authors-toggle" aria-expanded="false" aria-controls="authors-2-1" aria-label="Toggle full author list"><span class="et-al">, et al.</span><span class="fewer"> · show less</span></button></div>
+          <div class="pub-actions">
+            <button class="pub-abstract-toggle" aria-expanded="false" aria-controls="abs-2-1">Abstract <svg class="chev" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+            <a class="pub-link" href="https://www.frontiersin.org/journals/neuroinformatics/articles/10.3389/fninf.2025.1515873/full" target="_blank" rel="noopener">Frontiers <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+          </div>
+          <p class="pub-abstract-body" id="abs-2-1" hidden>In cognitive neuroscience, the integration of deep neural networks (DNNs) with traditional neuroscientific analyses has significantly advanced our understanding of both biological neural processes and the functioning of DNNs. However, challenges remain in effectively comparing the representational spaces of artificial models and brain data, particularly due to the growing variety of models and the specific demands of neuroimaging research. To address these challenges, we present Net2Brain, a Python-based toolbox that provides an end-to-end pipeline for incorporating DNNs into neuroscience research, encompassing dataset download, a large selection of models, feature extraction, evaluation, and visualization. Net2Brain provides functionalities in four key areas. First, it offers access to over 600 DNNs trained on diverse tasks across multiple modalities, including vision, language, audio, and multimodal data, organized through a carefully structured taxonomy. Second, it provides a streamlined API for downloading and handling popular neuroscience datasets, such as the NSD and THINGS dataset, allowing researchers to easily access corresponding brain data. Third, Net2Brain facilitates a wide range of analysis options, including feature extraction, representational similarity analysis (RSA), and linear encoding, while also supporting advanced techniques like variance partitioning and searchlight analysis. Finally, the toolbox integrates seamlessly with other established open source libraries, enhancing interoperability and promoting collaborative research. By simplifying model selection, data processing, and evaluation, Net2Brain empowers researchers to conduct more robust, flexible, and reproducible investigations of the relationships between artificial and biological neural representations.</p>
+        </div>
+      </article>
+      </div><p class="pub-note">* denotes shared first authorship</p>
+    <!-- publications:end -->
     </div>
     <!-- Filtering/regrouping swaps the list silently; this says what changed. -->
     <p class="visually-hidden" role="status" id="pub-live"></p>
-    <noscript>
-      <p class="pub-status">Publications are listed in <a href="publications.json">publications.json</a>.</p>
-    </noscript>
   </section>
 
   <!-- ============ WORK ============ -->
@@ -1126,6 +463,107 @@
     requestAnimationFrame(() => root.classList.add('theme-ready'));
   })();
 
+  // ---------- Top bar: pinned state + section marker ----------
+  (function () {
+    const header   = document.getElementById('siteHeader');
+    const nav      = document.getElementById('topnav');
+    const sentinel = document.querySelector('.top-sentinel');
+    if (!header || !nav) return;
+
+    // Pinned once the 1px sentinel above the bar has scrolled out of view.
+    if (sentinel && 'IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => {
+        header.classList.toggle('is-stuck', !entry.isIntersecting);
+      }).observe(sentinel);
+    }
+
+    const links = Array.from(nav.querySelectorAll('a[href^="#"]'));
+    const targets = new Map();
+    links.forEach(a => {
+      const el = document.getElementById(a.hash.slice(1));
+      if (el) targets.set(el, a);
+    });
+    if (!targets.size) return;
+
+    let active = null;
+    // Which sections currently cross the band, and whether the page is resting
+    // at its foot. Both feed pick().
+    const inBand = new Set();
+    let atEnd = false;
+
+    const moveThumb = () => {
+      if (!active) {
+        nav.classList.remove('has-active');
+        return;
+      }
+      // offsetLeft is measured from the rail's padding edge, which is also the
+      // containing block the marker is positioned in, so it needs no correction.
+      nav.style.setProperty('--thumb-x', active.offsetLeft + 'px');
+      nav.style.setProperty('--thumb-w', active.offsetWidth + 'px');
+      nav.classList.add('has-active');
+    };
+    const setActive = (link) => {
+      if (link === active) return;
+      links.forEach(a => {
+        a.classList.toggle('is-active', a === link);
+        if (a === link) a.setAttribute('aria-current', 'true');
+        else a.removeAttribute('aria-current');
+      });
+      active = link;
+      moveThumb();
+      // On narrow screens the rail scrolls sideways; keep the marker in view.
+      if (link && nav.scrollWidth > nav.clientWidth) {
+        const pad = 24;
+        const left = link.offsetLeft - pad;
+        const right = link.offsetLeft + link.offsetWidth + pad - nav.clientWidth;
+        if (left < nav.scrollLeft) nav.scrollLeft = left;
+        else if (right > nav.scrollLeft) nav.scrollLeft = right;
+      }
+    };
+
+    // The furthest section down the page that crosses the band, so scrolling into
+    // a new section hands it the marker straight away. Taking the first one
+    // instead leaves the previous section holding it: near the foot of the page
+    // #work never stops crossing the band, which is what kept Contact from ever
+    // lighting up.
+    const pick = () => {
+      if (atEnd) return links[links.length - 1];
+      let found = null;
+      targets.forEach((link, el) => { if (inBand.has(el)) found = link; });
+      return found;
+    };
+
+    if ('IntersectionObserver' in window) {
+      // A band across the upper third, below the bar. Percentages rather than
+      // pixels so it tracks the viewport instead of one hardcoded bar height.
+      const band = new IntersectionObserver((entries) => {
+        entries.forEach(e => e.isIntersecting ? inBand.add(e.target) : inBand.delete(e.target));
+        setActive(pick());
+      }, { rootMargin: '-18% 0px -55% 0px', threshold: 0 });
+      targets.forEach((_, el) => band.observe(el));
+
+      // The last section is the footer, and a footer shorter than the gap
+      // between the band and the bottom of the viewport can never reach the
+      // band however far you scroll. Seeing essentially all of it means the page
+      // is at its foot, which settles that case. A footer taller than the
+      // viewport never trips this, and does not need to: it reaches the band.
+      const lastSection = Array.from(targets.keys()).pop();
+      new IntersectionObserver(([e]) => {
+        atEnd = e.intersectionRatio >= 0.9;
+        setActive(pick());
+      }, { threshold: [0, 0.9, 1] }).observe(lastSection);
+    }
+
+    // Link widths change across the font-size breakpoint, so remeasure on resize.
+    let queued = false;
+    window.addEventListener('resize', () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => { queued = false; moveThumb(); });
+    });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveThumb);
+  })();
+
   // ---------- Reveal on scroll ----------
   (function () {
     const els = document.querySelectorAll('.reveal');
@@ -1162,231 +600,14 @@
     });
   })();
 
-  // ---------- Abstract toggle (delegated, so it covers rendered publications) ----------
-  (function () {
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    document.addEventListener('click', (ev) => {
-      const btn = ev.target.closest('.pub-abstract-toggle');
-      if (!btn) return;
-      const body = document.getElementById(btn.getAttribute('aria-controls'));
-      if (!body) return;
-      const isOpen = btn.getAttribute('aria-expanded') === 'true';
-      if (!isOpen) {
-        body.removeAttribute('hidden');
-        if (!reduceMotion) {
-          body.animate(
-            [{ opacity: 0, transform: 'translateY(-5px)' }, { opacity: 1, transform: 'none' }],
-            { duration: 250, easing: 'ease' }
-          );
-        }
-        btn.setAttribute('aria-expanded', 'true');
-      } else {
-        if (!reduceMotion) {
-          body.animate(
-            [{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(-5px)' }],
-            { duration: 180, easing: 'ease' }
-          ).onfinish = () => {
-            body.setAttribute('hidden', '');
-            btn.setAttribute('aria-expanded', 'false');
-          };
-        } else {
-          body.setAttribute('hidden', '');
-          btn.setAttribute('aria-expanded', 'false');
-        }
-      }
-    });
-  })();
-
-  // ---------- Author list toggle (delegated) ----------
-  (function () {
-    document.addEventListener('click', (ev) => {
-      const btn = ev.target.closest('.pub-authors-toggle');
-      if (!btn) return;
-      const rest = document.getElementById(btn.getAttribute('aria-controls'));
-      if (!rest) return;
-      const isOpen = btn.getAttribute('aria-expanded') === 'true';
-      rest.toggleAttribute('hidden', isOpen);
-      btn.setAttribute('aria-expanded', String(!isOpen));
-    });
-  })();
-
-  // ---------- Publications (rendered from publications.json) ----------
-  (function () {
-    const host = document.getElementById('pub-list');
-    if (!host) return;
-    const filterBar = document.getElementById('pub-filter');
-
-    const ICON_ARROW = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>';
-    const ICON_CHEV  = '<svg class="chev" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>';
-    const ICON_STAR  = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.7 6.5L22 9.3l-5.5 4.7L18 21l-6-3.4L6 21l1.5-7L2 9.3l7.3-.8L12 2z"/></svg>';
-
-    const ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
-    const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ESCAPES[c]);
-
-    // Bold the site owner wherever they appear, ignoring a trailing shared-authorship marker.
-    // Long lists collapse to "<first N>, et al." behind a toggle.
-    function renderAuthors(authors, me, max, restId) {
-      const list = authors || [];
-      const name = (a) => (me && a.replace(/\*+$/, '') === me ? `<b>${esc(a)}</b>` : esc(a));
-      if (list.length <= max) return list.map(name).join(', ');
-      return list.slice(0, max).map(name).join(', ')
-        + `<span class="pub-authors-rest" id="${restId}" hidden>, ${list.slice(max).map(name).join(', ')}</span>`
-        + `<button class="pub-authors-toggle" aria-expanded="false" aria-controls="${restId}"`
-        + ` aria-label="Toggle full author list">`
-        + `<span class="et-al">, et al.</span><span class="fewer"> · show less</span>`
-        + `</button>`;
-    }
-
-    function renderPub(pub, me, max, absId, restId) {
-      const tag = pub.tag ?? pub.year;
-      const hasAbstract = Boolean(pub.abstract);
-      const links = (pub.links || [])
-        .map((l) => `<a class="pub-link" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ${ICON_ARROW}</a>`)
-        .join('');
-
-      return `
-      <article class="pub${pub.featured ? ' highlight' : ''}">
-        <div class="venue">
-          <strong>${esc(pub.venue)}</strong>${tag ? `<span class="venue-tag">${esc(tag)}</span>` : ''}
-        </div>
-        <div>
-          ${pub.award ? `<span class="highlight-badge">${ICON_STAR} ${esc(pub.award)}</span>` : ''}
-          <h4 class="pub-title">${pub.url
-            ? `<a href="${esc(pub.url)}" target="_blank" rel="noopener">${esc(pub.title)}</a>`
-            : esc(pub.title)}</h4>
-          <div class="pub-authors">${renderAuthors(pub.authors, me, max, restId)}${pub.note ? ` · <em>${esc(pub.note)}</em>` : ''}</div>
-          ${hasAbstract || links ? `<div class="pub-actions">
-            ${hasAbstract ? `<button class="pub-abstract-toggle" aria-expanded="false" aria-controls="${absId}">Abstract ${ICON_CHEV}</button>` : ''}
-            ${links}
-          </div>` : ''}
-          ${hasAbstract ? `<p class="pub-abstract-body" id="${absId}" hidden>${esc(pub.abstract)}</p>` : ''}
-        </div>
-      </article>`;
-    }
-
-    // ---- View state ----
-    // showAll  — every paper, or only those marked `"relevant": true` in the JSON.
-    // byDate   — group by year instead of by the themes the JSON defines.
-    // Abstract/author ids come from a paper's position in the JSON (__uid), so they
-    // stay stable no matter how the list is filtered or grouped.
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const scopeEl = document.getElementById('pub-title-scope');
-    const modeEl = document.getElementById('pub-title-mode');
-    const groupBtn = document.getElementById('pub-group-toggle');
-    const liveEl = document.getElementById('pub-live');
-    let data = null;
-    let showAll = false;
-    let byDate = false;
-    let shownCount = 0;
-
-    // Groups as rendered: the JSON's themes, or one bucket per year, newest first.
-    function currentGroups() {
-      if (!byDate) return data.groups || [];
-      const all = (data.groups || []).flatMap((g) => g.publications || []);
-      const years = [...new Set(all.map((p) => p.year))].sort((a, b) => (b ?? 0) - (a ?? 0));
-      return years.map((y) => ({
-        title: y == null ? 'Undated' : String(y),
-        publications: all.filter((p) => p.year === y)
-      }));
-    }
-
-    function syncTitle() {
-      if (scopeEl) scopeEl.textContent = showAll ? 'All papers' : 'Selected papers';
-      if (modeEl) modeEl.textContent = byDate ? 'date' : 'theme';
-      if (groupBtn) {
-        groupBtn.setAttribute('aria-pressed', String(byDate));
-        groupBtn.setAttribute('aria-label', byDate
-          ? 'Grouped by date — press to group by theme'
-          : 'Grouped by theme — press to group by date');
-      }
-    }
-
-    function render() {
-      const me = data.highlightAuthor;
-      const max = data.maxAuthors ?? 4;
-      shownCount = 0;
-      const groups = currentGroups()
-        .map((group) => {
-          const picked = (group.publications || []).filter((pub) => showAll || pub.relevant === true);
-          if (!picked.length) return '';
-          shownCount += picked.length;
-          return `
-      <div class="pub-group">
-        <h3 class="pub-group-title">${esc(group.title)}</h3>
-        ${picked.map((pub) => renderPub(pub, me, max, `abs-${pub.__uid}`, `authors-${pub.__uid}`)).join('')}
-      </div>`;
-        })
-        .join('');
-
-      host.innerHTML = groups + (data.footnote ? `<p class="pub-note">${esc(data.footnote)}</p>` : '');
-      host.removeAttribute('aria-busy');
-      syncTitle();
-    }
-
-    function rerender() {
-      render();
-      if (liveEl) {
-        liveEl.textContent = `Showing ${shownCount} ${showAll ? 'publications' : 'selected publications'}, `
-          + `grouped by ${byDate ? 'date' : 'theme'}.`;
-      }
-      if (!reduceMotion) {
-        host.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220, easing: 'ease' });
-      }
-    }
-
-    function setFilter(next) {
-      if (showAll === next) return;
-      showAll = next;
-      filterBar.querySelectorAll('button').forEach((b) => {
-        b.setAttribute('aria-pressed', String((b.dataset.filter === 'all') === showAll));
-      });
-      rerender();
-    }
-
-    function initFilter() {
-      const all = (data.groups || []).flatMap((g) => g.publications || []);
-      const relevant = all.filter((p) => p.relevant === true).length;
-      // Without any relevant flags the filter would show an empty list — fall back to all.
-      if (!relevant || relevant === all.length) {
-        showAll = true;
-        return;
-      }
-      filterBar.querySelector('[data-count="relevant"]').textContent = relevant;
-      filterBar.querySelector('[data-count="all"]').textContent = all.length;
-      filterBar.hidden = false;
-      filterBar.addEventListener('click', (ev) => {
-        const btn = ev.target.closest('button[data-filter]');
-        if (btn) setFilter(btn.dataset.filter === 'all');
-      });
-    }
-
-    fetch('publications.json')
-      .then((res) => {
-        if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-        return res.json();
-      })
-      .then((json) => {
-        data = json;
-        (data.groups || []).forEach((g, gi) => {
-          (g.publications || []).forEach((p, pi) => { p.__uid = `${gi}-${pi}`; });
-        });
-        if (filterBar) initFilter();
-        else showAll = true;
-        if (groupBtn) {
-          groupBtn.addEventListener('click', () => { byDate = !byDate; rerender(); });
-        }
-        render();
-      })
-      .catch((err) => {
-        console.error('Could not load publications.json:', err);
-        host.innerHTML = '<p class="pub-status">Publications could not be loaded. See <a href="publications.json">publications.json</a>.</p>';
-        host.removeAttribute('aria-busy');
-      });
-  })();
-
   // ---------- Year ----------
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+
+<!-- Renders the same markup the build script wrote into #pub-list above, and takes
+     over the Relevant/All and theme/date controls. The list is already in the HTML,
+     so nothing here is needed to read the papers. -->
+<script type="module" src="publications.js"></script>
 
 <!-- The ablation figure's section is commented out above, so attention-ablation.js is not
      loaded here. Restore both together; the standalone preview page loads it on its own. -->

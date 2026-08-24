@@ -1,0 +1,43 @@
+/* Footer / contact. */
+
+footer.foot {
+  padding: clamp(3rem, 7vw, 5rem) 0 2.5rem;
+  position: relative;
+}
+.foot-headline {
+  font-family: var(--serif);
+  font-weight: 350;
+  font-style: italic;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  max-width: 22ch;
+  margin: 0 0 1.75rem;
+}
+.foot-headline a {
+  border-bottom: 1px solid var(--accent);
+  color: var(--accent);
+}
+.foot-headline a:hover { background: var(--accent); color: var(--paper); }
+
+.foot-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  flex-wrap: wrap; gap: 1rem;
+}
+.foot-meta a:hover { color: var(--accent); }
+/* Nods to the "* denotes shared first authorship" footnote in the publication list. */
+.foot-credit { text-align: right; }
+.foot-credit a { border-bottom: 1px solid var(--rule); }
+.foot-credit a:hover { border-color: var(--accent); }
+.foot-star { color: var(--accent); }
+

@@ -1,0 +1,13 @@
+# https://t9s9.github.io/robots.txt
+#
+# This is a GitHub Pages *user* site, so the repo root is the domain root and this
+# file is served at https://t9s9.github.io/robots.txt — the only place crawlers look.
+# (Inside a project site, /<repo>/robots.txt is ignored; robots.txt is per-origin.)
+
+User-agent: *
+Allow: /
+
+# Nothing is disallowed on purpose. Blocking styles/ or publications.js would stop
+# crawlers rendering the page, which costs far more than it saves.
+
+Sitemap: https://t9s9.github.io/sitemap.xml

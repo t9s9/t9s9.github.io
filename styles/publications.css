@@ -1,0 +1,274 @@
+/* Publication list: the relevant/all filter, the rows themselves, the flagship
+   treatment, and the abstract / author-list disclosure controls. Everything here
+   styles markup injected by the publications script in index.html. */
+
+/* Segmented control: relevant papers by default, everything on request. */
+.pub-filter {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  flex: none;
+}
+.pub-filter[hidden] { display: none; }   /* class beats the UA [hidden] rule */
+.pub-filter button {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .4rem;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: .45rem .95rem;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--ink-mute);
+  cursor: pointer;
+  transition: color .2s ease, background-color .25s ease;
+}
+.pub-filter button:hover { color: var(--ink); }
+.pub-filter button[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--paper);
+}
+.pub-filter .count {
+  font-size: 10px;
+  letter-spacing: .06em;
+  opacity: .65;
+  font-variant-numeric: tabular-nums;
+}
+
+.pub-group { margin-bottom: 2.75rem; }
+.pub-group:last-child { margin-bottom: 0; }
+.pub-group-title {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.25rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center; gap: .75rem;
+}
+
+.pub {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px dashed var(--rule);
+  transition: padding-left .25s ease;
+}
+.pub:last-child, .pub.highlight:last-child { border-bottom: none; }
+.pub:hover { padding-left: .35rem; }
+.pub:hover .pub-title { color: var(--accent); }
+
+.venue {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  padding-top: .35rem;
+}
+/* The venue name is the anchor the eye scans down the left rail, so it gets
+   its own size and near-normal tracking — the wide .1em of the surrounding
+   mono label reads as texture, not as a word. */
+.venue strong {
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: .04em;
+  display: block;
+  margin-bottom: .35rem;
+}
+.venue-tag {
+  display: inline-block;
+  padding: .15rem .45rem;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  font-size: 10px;
+}
+
+.pub-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.05rem;
+  line-height: 1.4;
+  margin: 0 0 .35rem;
+  color: var(--ink);
+  transition: color .2s ease;
+  font-variation-settings: "opsz" 36;
+}
+.pub-authors {
+  font-size: .92rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.pub-authors b { color: var(--ink); font-weight: 500; }
+.pub-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-top: .5rem;
+  border-bottom: 1px solid transparent;
+}
+.pub-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.pub-link svg { width: 11px; height: 11px; }
+
+.pub-note {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .05em;
+  color: var(--ink-mute);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--rule);
+}
+
+/* Flagship papers — the two or three the eye should land on in a list that
+   is otherwise deliberately even. Title size stays put so the list keeps one
+   reading scale; emphasis comes from the venue in accent, an accent tick in
+   the gutter, more air, and a solid rule against the dashed ones. No tinted
+   wash — a filled panel would read as a UI card dropped into an editorial
+   list. Driven by "featured": true in the JSON. */
+.pub.highlight {
+  position: relative;
+  padding: 1.9rem 0 1.9rem 1.15rem;
+  margin-left: -1.15rem;
+  border-bottom: 1px solid var(--rule);
+}
+.pub.highlight::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.9rem;
+  bottom: 1.9rem;
+  width: 2px;
+  background: var(--accent);
+}
+.pub.highlight:hover { padding-left: 1.5rem; }
+.pub.highlight .venue strong {
+  color: var(--accent);
+  font-size: 14px;
+}
+.highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--accent);
+  padding: .25rem .55rem .3rem;
+  border-radius: 2px;
+  margin-bottom: .55rem;
+  line-height: 1;
+}
+[data-theme="dark"] .highlight-badge { color: #15171a; }
+.highlight-badge svg { width: 11px; height: 11px; }
+
+
+/* ---------- Abstract toggle ---------- */
+.pub-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: .6rem;
+}
+.pub-actions .pub-link { margin-top: 0; }
+.pub-abstract-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  padding: 0;
+  transition: color .2s ease, border-bottom-color .2s ease;
+}
+.pub-abstract-toggle:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.pub-abstract-toggle[aria-expanded="true"] { color: var(--ink); }
+.pub-abstract-toggle .chev {
+  width: 10px; height: 10px;
+  transition: transform .2s ease;
+  flex-shrink: 0;
+}
+.pub-abstract-toggle[aria-expanded="true"] .chev { transform: rotate(180deg); }
+.pub-abstract-body {
+  margin-top: .65rem;
+  padding: .8rem 0 .8rem 1rem;
+  border-left: 2px solid var(--rule);
+  font-size: .875rem;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  max-width: 64ch;
+  margin-bottom: 0;
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* ---------- Author list toggle ---------- */
+.pub-authors-toggle {
+  font: inherit;
+  font-style: italic;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: var(--ink-mute);
+  text-underline-offset: 2px;
+  transition: color .2s ease;
+}
+.pub-authors-toggle:hover { color: var(--accent); text-decoration: underline; }
+.pub-authors-toggle .fewer { display: none; }
+.pub-authors-toggle[aria-expanded="true"] .et-al { display: none; }
+.pub-authors-toggle[aria-expanded="true"] .fewer { display: inline; }
+
+@media (max-width: 820px) {
+  /* Venue becomes an eyebrow above the title: one line, accent name, room below. */
+  .pub { grid-template-columns: 1fr; gap: 0; }
+  .venue {
+    padding-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .55rem;
+    margin-bottom: .75rem;
+  }
+  .venue strong {
+    display: inline;
+    margin-bottom: 0;
+    color: var(--accent);
+  }
+  /* Flagship rows keep the accent tick and the extra air, but stay inside
+     the page gutter — no negative margin at this width. */
+  .pub.highlight {
+    margin-left: 0;
+    padding: 1.5rem 0 1.5rem 1rem;
+  }
+  .pub.highlight:hover { padding-left: 1.35rem; }
+  .pub.highlight::before { top: 1.5rem; bottom: 1.5rem; }
+}

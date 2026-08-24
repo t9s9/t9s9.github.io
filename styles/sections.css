@@ -1,0 +1,77 @@
+/* Shared section furniture: the block rhythm, section headings, and the
+   filled call-to-action button used in the footer. */
+
+section.block {
+  padding: clamp(3rem, 7vw, 5.5rem) 0;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+.section-head {
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+h2.section-title {
+  font-family: var(--serif);
+  font-weight: 350;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  line-height: 1.1;
+  letter-spacing: -.01em;
+  margin: 0;
+  min-width: 0;
+}
+h2.section-title em { font-style: italic; color: var(--accent); }
+
+/* A word in the heading that behaves like a switch — reads as type, not chrome. */
+.title-toggle {
+  font: inherit;
+  font-style: italic;
+  color: var(--accent);
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  border-bottom: 1px dashed var(--accent);
+  border-bottom-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  transition: border-bottom-color .2s ease, opacity .2s ease;
+}
+.title-toggle:hover { border-bottom-style: solid; border-bottom-color: var(--accent); }
+.title-toggle:active { opacity: .7; }
+
+
+/* ---------- CTA Button ---------- */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: .9rem;
+  padding: 1rem 1.6rem 1rem 1.8rem;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  border: 1px solid var(--ink);
+  transition: all .25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.cta:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--paper);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px -8px rgba(181,74,37,.5);
+}
+.cta svg {
+  width: 16px; height: 16px;
+  transition: transform .25s ease;
+}
+.cta:hover svg { transform: translateX(4px); }
+[data-theme="dark"] .cta:hover { color: #15171a; }
+

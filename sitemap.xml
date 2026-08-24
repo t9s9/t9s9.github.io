@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Hand-maintained; there is only one page worth ranking.
+
+  Bump <lastmod> whenever the content changes (papers, about text). Crawlers treat
+  it as a hint and start ignoring it if it never moves, so a stale date is worse
+  than none — drop the element rather than let it rot.
+
+  attention-ablation.html is deliberately absent: it is the standalone preview used
+  to iterate on the figure, not a page meant to rank. Its own lede says "preview".
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://t9s9.github.io/</loc>
+    <lastmod>2026-08-24</lastmod>
+  </url>
+</urlset>

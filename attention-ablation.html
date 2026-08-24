@@ -20,41 +20,35 @@
       open http://localhost:8000/attention-ablation.html
 -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Theme and type come straight from the site's stylesheets, so this preview
+     cannot drift from index.html. Only the page chrome below is local. -->
+<link rel="stylesheet" href="styles/fonts.css">
+<link rel="stylesheet" href="styles/tokens.css">
+
+<!-- Same pre-paint theme bootstrap as index.html: tokens.css keys the dark
+     palette off [data-theme], so the attribute has to be stamped before paint. -->
+<script>
+  (function () {
+    var stored = null;
+    try { stored = localStorage.getItem('theme'); } catch (e) {}
+    var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  })();
+</script>
 
 <style>
-  /* Mirrors the tokens index.html defines, so the preview matches the site. */
-  :root {
-    --bg: #f5f1e8; --paper: #fbf8f1;
-    --ink: #1a1a1a; --ink-soft: #4a4744; --ink-mute: #6f6a60;
-    --rule: #d8cfb9; --accent: #b54a25;
-    --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #15171a; --paper: #1a1c1f;
-      --ink: #ece7dc; --ink-soft: #b8b3a8; --ink-mute: #9a958a;
-      --rule: #2c2f33; --accent: #e0926a;
-    }
-  }
-  [data-theme="dark"] {
-    --bg: #15171a; --paper: #1a1c1f;
-    --ink: #ece7dc; --ink-soft: #b8b3a8; --ink-mute: #9a958a;
-    --rule: #2c2f33; --accent: #e0926a;
-  }
+  /* Page chrome for the preview itself — the figure styles itself. */
   *, *::before, *::after { box-sizing: border-box; }
   body {
     margin: 0;
     padding: clamp(1.5rem, 5vw, 4rem) clamp(1.25rem, 4vw, 3rem);
     background: var(--bg); color: var(--ink);
-    font-family: "Inter Tight", system-ui, -apple-system, sans-serif;
+    font-family: var(--sans);
     -webkit-font-smoothing: antialiased;
   }
   .page { max-width: 1180px; margin: 0 auto; }
   h1 {
-    font-family: "Fraunces", Georgia, serif; font-weight: 400;
+    font-family: var(--serif); font-weight: 400;
     font-size: clamp(1.5rem, 4vw, 2.25rem); letter-spacing: -.02em; margin: 0 0 .5rem;
   }
   h1 em { font-style: italic; color: var(--accent); }

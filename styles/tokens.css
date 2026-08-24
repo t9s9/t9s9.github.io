@@ -1,0 +1,38 @@
+/* Design tokens: colour, type and shadow, light by default and overridden
+   under [data-theme="dark"]. attention-ablation.html loads this file too, so the
+   standalone figure preview stays in step with the site. */
+:root {
+  --bg:        #f5f1e8;
+  --bg-soft:   #ede6d6;
+  --paper:    #fbf8f1;
+  --ink:      #1a1a1a;
+  --ink-soft: #4a4744;
+  --ink-mute: #6f6a60;          
+  --rule:     #d8cfb9;
+  --rule-strong: #8f8264;       /* borders on controls — meets 3:1 for non-text contrast */
+  --accent:   #b54a25;
+  --accent-soft: #d97a4a;
+  --shadow:   0 1px 0 rgba(26,26,26,.04);
+
+  /* One settle curve, so anything that moves decelerates the same way. */
+  --ease-settle: cubic-bezier(.22, 1, .36, 1);
+
+  --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --sans:  "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:  "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+
+[data-theme="dark"] {
+  --bg:       #15171a;
+  --bg-soft:  #1e2125;
+  --paper:    #1a1c1f;
+  --ink:      #ece7dc;
+  --ink-soft: #b8b3a8;
+  --ink-mute: #9a958a;          
+  --rule:     #2c2f33;
+  --rule-strong: #646b75;
+  --accent:   #e0926a;
+  --accent-soft: #f0a784;
+  --shadow:   0 1px 0 rgba(0,0,0,.3);
+}
+
