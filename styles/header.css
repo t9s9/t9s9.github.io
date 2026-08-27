@@ -59,6 +59,18 @@ header.top.is-stuck {
   background: var(--accent);
   transform: translateY(-1px);
 }
+/* Given/family gap, opened with word-spacing rather than by splitting the name
+   into two elements. The separator MUST stay a plain U+0020: Blink and WebKit
+   apply word-spacing only to the regular space, so a &nbsp; here silently
+   swallows this rule (Firefox honours both, which makes it easy to miss).
+   Nothing is lost by dropping the nbsp — .mark sets white-space: nowrap, so the
+   wordmark still cannot break across lines.
+   A step down from the bar's 12px so the name sits quieter beside the nav rail,
+   which is now the largest type in the header. */
+.mark span:not(.mark-dot) {
+  font-size: 11px;
+  word-spacing: .5em;
+}
 
 /* ---------- Section nav ----------
    A hairline rail rather than four loose words: it reads as one control next to

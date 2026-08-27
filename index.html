@@ -36,13 +36,13 @@
 }
 </script>
 
-<meta name="theme-color" content="#f5f1e8" media="(prefers-color-scheme: light)" />
-<meta name="theme-color" content="#15171a" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#f3f1e9" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#141714" media="(prefers-color-scheme: dark)" />
 
 <!-- Fonts are self-hosted (assets/fonts/): no third-party request, so no visitor IP
      reaches Google — and only the subsets and weight ranges this page uses are shipped. -->
-<link rel="preload" href="assets/fonts/fraunces-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/inter-tight-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/literata-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/public-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 
 <!-- Theme runs before first paint so dark-mode visitors never see a light flash.
      The toggle's click handler is wired up in the main script at the end of <body>. -->
@@ -71,7 +71,7 @@
      the shared base, then one stylesheet per section of the page. No build step —
      these are linked as-is. -->
 <link rel="stylesheet" href="styles/fonts.css" />
-<link rel="stylesheet" href="styles/tokens.css" />
+<link rel="stylesheet" href="styles/tokens_alt.css" />
 <link rel="stylesheet" href="styles/base.css" />
 <link rel="stylesheet" href="styles/header.css" />
 <link rel="stylesheet" href="styles/hero.css" />
@@ -94,7 +94,7 @@
   <div class="wrap top-inner">
     <div class="mark">
       <span class="mark-dot" aria-hidden="true"></span>
-      <span>Timothy&nbsp;Schaumlöffel</span>
+      <span>Timothy Schaumlöffel</span>
     </div>
     <nav class="topnav" id="topnav" aria-label="Section navigation">
       <!-- Sliding marker for the section currently on screen; positioned by JS
@@ -429,7 +429,7 @@
 
     <div class="foot-meta">
       <span>© <span id="year"></span> Timothy Schaumlöffel · Frankfurt am Main</span>
-      <span class="foot-credit">Built with Claude</span>
+      <span class="foot-credit">CC BY-NC-ND 4.0</span>
     </div>
   </footer>
   </main>

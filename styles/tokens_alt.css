@@ -1,0 +1,285 @@
+/* =============================================================================
+   tokens_alt.css — a drop-in ALTERNATIVE to tokens.css.
+   Warm paper + deep green accent, set in Literata / Public Sans / JetBrains Mono.
+
+   HOW TO USE IT
+     In index.html (and attention-ablation.html) swap exactly one line:
+       <link rel="stylesheet" href="styles/tokens.css">
+     ->  <link rel="stylesheet" href="styles/tokens_alt.css">
+     Keep fonts.css linked and keep this file *after* it: fonts.css still supplies
+     JetBrains Mono, which this theme reuses. Fraunces and Inter Tight stay
+     declared there but go unreferenced, and a declared-but-unused @font-face is
+     never downloaded, so nothing is wasted by leaving them in place.
+
+   WHY THE @font-face RULES LIVE HERE AND NOT IN fonts.css
+     House style is tokens.css = custom properties only, fonts.css = @font-face.
+     This file deliberately breaks that so the alternative is *one* link swap
+     instead of two coordinated edits, which is what you want while comparing
+     themes. If this theme is ever adopted for good, move the two @font-face
+     blocks below into fonts.css and this file goes back to being pure tokens.
+
+   EVERY TOKEN IN tokens.css IS REDEFINED HERE. That matters: whichever of the
+   two files loads last wins, and a token this file forgot would silently fall
+   through to the other theme's value and clash.
+   ============================================================================= */
+
+
+/* -----------------------------------------------------------------------------
+   1. THE TYPEFACES
+
+   The brief was "optical flow, visibility, readability", so the pair was chosen
+   on measured glyph metrics rather than vibe. The numbers below are x-height and
+   cap-height normalised to a 1000-unit em (read as "per mille of the type size")
+   and the mean advance width of a-z, which is how much horizontal room the
+   lowercase actually takes:
+
+     family            x-height   cap    x/cap   avg advance
+     Literata             507     700    0.724       556
+     Public Sans          517     723    0.715       513
+     JetBrains Mono       550     730    0.753       600
+     - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     Fraunces  (current)  482     700    0.689       598
+     Inter Tight (curr.)  546     728    0.750       486
+     Newsreader (rejected)426     670    0.636       462
+
+   OPTICAL FLOW is mostly one thing: whether the eye has to re-calibrate when it
+   crosses from a heading into body text into a monospace label. It does not, if
+   the families share an x-height. Literata 507 / Public Sans 517 / JetBrains
+   Mono 550 sit inside a 43-unit band, and their cap heights (700/723/730) inside
+   a 30-unit band. Set at the same font-size they optically match, so the page
+   reads as one voice in three registers. The current pair is the opposite case:
+   Fraunces 482 against Inter Tight 546 is a 64-unit gap in the other direction,
+   which is why headings and body never quite agree.
+
+   VISIBILITY is x-height too, because at 17px body and 11px mono labels the
+   lowercase is all there is. Literata carries the largest x-height of any serif
+   considered (+25 units over Fraunces) and the widest lowercase (556), so it
+   holds up small and at low contrast. Newsreader was the first pick and was
+   dropped on this exact measurement: at 426 it is the smallest-on-the-body of
+   the whole set, elegant but faint, which is the opposite of the brief.
+
+   READABILITY is where the two families were actually designed to live.
+   Literata was drawn by TypeTogether for Google Play Books - a long-form
+   screen-reading brief - with sturdy, slightly slab-like serifs that survive
+   antialiasing instead of dissolving the way a high-contrast Didone does.
+   Public Sans is the US Web Design System face, derived from Libre Franklin and
+   redrawn for interface legibility: open apertures on a/c/e/s, unambiguous
+   I/l/1, and 5% more lowercase advance than Inter Tight (513 vs 486), which is
+   the whole difference between a "Tight" display cut and a face meant to be read
+   in paragraphs. It is also a third of the weight on the wire (26KB vs 44KB).
+
+   WHY MONO STAYS. --mono is the workhorse here - 21 of the ~40 font-family
+   declarations across styles/ are eyebrows, venue tags, years and meta labels in
+   it. JetBrains Mono already sits in the shared x-height band, is already
+   self-hosted, and is already the right tool. Swapping it would cost bytes and
+   buy nothing, so it is reused unchanged.
+
+   Both new families are variable and both are self-hosted from assets/fonts/ for
+   the same GDPR reason as the originals: a Google-hosted font hands every
+   visitor's IP to a third party, which a German site should not do.
+   Only latin + latin-ext, matching the existing subsetting.
+   -------------------------------------------------------------------------- */
+
+/* Literata - variable, opsz 7..72 + wght 200..900 in the file.
+   font-weight below declares 300 700, which clamps the site to the range it
+   actually uses. The opsz (optical size) axis needs no declaration: browsers
+   default to font-optical-sizing:auto, so the design compensates on its own -
+   thicker hairlines and looser spacing at 12px, finer and tighter at the 64px
+   hero. That is the literal typographic sense of "optical flow", handled by the
+   font rather than by hand-tuned per-breakpoint CSS. */
+@font-face {
+  font-family: 'Literata';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;          /* show fallback immediately, swap in on arrival - never blank text */
+  src: url(../assets/fonts/literata-normal-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Literata';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(../assets/fonts/literata-normal-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* The italic is not optional. Every section heading is "... <em>two words</em>"
+   in accent colour, and .pub-note and the footer lean on it too. A synthesised
+   oblique (what you get when the italic is missing) just slants the roman and
+   looks broken at 40px, so the real cut ships. */
+@font-face {
+  font-family: 'Literata';
+  font-style: italic;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(../assets/fonts/literata-italic-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Literata';
+  font-style: italic;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(../assets/fonts/literata-italic-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Public Sans - variable wght 100..900 in the file, clamped to 300 700 here.
+   Italic ships because body copy uses <em> inline (the Net2Brain mention in the
+   about section, and pub.note in publications.js). Inter Tight currently ships
+   no italic at all and those words render as a synthetic slant. */
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(../assets/fonts/public-sans-normal-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(../assets/fonts/public-sans-normal-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Public Sans';
+  font-style: italic;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(../assets/fonts/public-sans-italic-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Public Sans';
+  font-style: italic;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(../assets/fonts/public-sans-italic-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+
+/* -----------------------------------------------------------------------------
+   2. LIGHT THEME (the default)
+
+   THE COLOUR IDEA. The existing theme is cream + terracotta - one warm family,
+   no tension. Green is the opposite move: a cool, dark accent on a warm ground,
+   the complementary pairing you get in letterpress and in old academic presses.
+   It reads as ink on paper rather than as a brand colour, which is what a
+   research portfolio wants.
+
+   The paper is pulled very slightly off the current #f5f1e8 towards neutral.
+   That cream is noticeably orange, chosen to sit under terracotta; left as-is it
+   fights a green accent and both look muddied. #f3f1e9 keeps the warmth but
+   drops enough yellow that the green reads as deliberate.
+
+   CONTRAST. Every pair below was checked against WCAG 2.x, not eyeballed. Body
+   text clears AA-large-body 7:1; anything text-sized clears 4.5:1; borders and
+   focus rings clear the 3:1 non-text threshold. Measured ratios are in the
+   comments so a future edit can see what headroom it is spending.
+   -------------------------------------------------------------------------- */
+:root {
+  /* --bg: the page ground. Everything else is judged against this. */
+  --bg:        #f3f1e9; 
+  /* --bg-soft: one step down from --bg. Recessed fills - the nav pill track,
+     hover beds - where a panel should read as *behind* the page, not on it. */
+     
+  --bg-soft:   #eae7db;
+
+  /* --paper: one step *up* from --bg, i.e. lighter. Raised surfaces: cards,
+     the publication rows, anything that should float. It is also the foreground
+     of ::selection (base.css paints selected text --paper on --accent), so it
+     has to stay light enough to contrast the accent - see --accent below. */
+  --paper:     #faf8f2; 
+
+  /* --ink: primary text. Near-black with a green cast rather than pure #000,
+     which glares on a warm ground.                        15.5:1 on --bg */
+  --ink:       #181a18;
+
+  /* --ink-soft: secondary text - body paragraphs set below the headline,
+     author lists. Deliberately still a *text* colour.      8.0:1 on --bg */
+  --ink-soft:  #454a45;
+
+  /* --ink-mute: the quietest text that is still text - mono eyebrows, venue
+     tags, dates, captions. This is the token most likely to be pushed too pale
+     in a redesign; 4.70:1 is only 0.2 above the 4.5:1 floor, so lightening it
+     any further breaks AA for the smallest type on the page.
+                                          4.70:1 on --bg, 5.01:1 on --paper */
+  --ink-mute:  #676d64;
+
+  /* --rule: hairlines and dividers. Decorative only - no contrast floor
+     applies, it just has to be visible against --bg. */
+  --rule:      #d5d2c2;
+
+  /* --rule-strong: borders on things you can *operate* - buttons, the view
+     toggle, inputs. WCAG treats a control boundary as non-text UI and asks for
+     3:1, which is why this is a separate, darker token from --rule.
+                                          3.01:1 on --bg, 3.21:1 on --paper */
+  --rule-strong: #8a8d78;
+
+  /* --accent: the green. Links on hover, <em> inside section headings, focus
+     rings, ::selection background. It is used as small text, so 4.5:1 is a hard
+     floor - a brighter, more saturated green would fail it, which is why this is
+     a deep pine rather than an emerald. Dark enough to double as a text colour,
+     saturated enough to still read as green and not as grey.
+             5.79:1 on --bg | 6.17:1 on --paper | 6.17:1 for --paper-on-accent */
+  --accent:     #1f6a45;
+
+  /* --accent-soft: the lighter partner, for accent-tinted fills, borders and
+     hover states - never for small text, which is why it is held to the 3:1
+     non-text bar instead of 4.5:1.                         3.57:1 on --bg */
+  --accent-soft: #2f8f5c;
+
+  /* --shadow: a single hairline shadow, not a blur. The design is flat and
+     paper-like; a soft drop shadow would read as Material and break it. */
+  --shadow:   0 1px 0 rgba(24,26,24,.05);
+
+  /* One settle curve, so anything that moves decelerates the same way.
+     Fast out, long gentle tail - motion arrives rather than stops. */
+  --ease-settle: cubic-bezier(.22, 1, .36, 1);
+
+  /* --serif: display. Headings, the hero name, publication titles, footer.
+     --sans:  body and UI. The 17px paragraph default in base.css.
+     --mono:  eyebrows, tags, years, labels - uppercase micro-type.
+     Each stack ends in a same-genre system fallback so an unstyled first paint
+     (or a blocked font) still lands close to the intended proportions. */
+  --serif: "Literata", "Iowan Old Style", Charter, Georgia, serif;
+  --sans:  "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:  "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+
+
+/* -----------------------------------------------------------------------------
+   3. DARK THEME
+
+   Stamped on <html> before first paint by the inline bootstrap in index.html
+   (localStorage 'theme', else prefers-color-scheme), so there is no flash.
+
+   Only what changes is redefined - the font stacks and --ease-settle are
+   inherited from :root above and must NOT be repeated here.
+
+   The accent inverts rather than darkens. A deep pine on a dark ground would be
+   nearly invisible, so dark mode uses a light sage that carries the same hue at
+   the opposite end of the lightness scale. Note the ground is a desaturated
+   green-black, not neutral grey: it keeps the accent from looking like a stray
+   highlight and holds the two themes together as one identity.
+   -------------------------------------------------------------------------- */
+[data-theme="dark"] {
+  --bg:       #141714;          /* green-black ground                          */
+  --bg-soft:  #1e231e;          /* recessed fills - still below --bg           */
+  --paper:    #191d19;          /* raised surfaces; lifts *toward* light       */
+  --ink:      #e6e9e0;          /* warm off-white, never #fff - pure white on
+                                   near-black haloes badly     14.7:1 on --bg  */
+  --ink-soft: #b2b8ac;          /*                              8.9:1 on --bg  */
+  --ink-mute: #949a8e;          /* more headroom than in light mode (6.3:1),
+                                   because thin type on dark blooms and needs it */
+  --rule:     #2a2f2a;          /* hairlines                                   */
+  --rule-strong: #5f6a5f;       /* control borders            3.19:1 on --bg   */
+  --accent:   #7ecc9e;          /* sage - the pine, inverted  9.48:1 on --bg,
+                                   8.95:1 both ways against --paper            */
+  --accent-soft: #a2ddb9;       /* lighter partner           11.68:1 on --bg   */
+  --shadow:   0 1px 0 rgba(0,0,0,.35);
+}

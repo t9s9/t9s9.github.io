@@ -39,7 +39,11 @@
   letter-spacing: .08em;
   text-transform: uppercase;
   padding: .4rem .7rem;
-  border: 1px solid var(--rule);
+  /* Accent, not --rule: these are the only pills on the page that name the
+     research itself, so they carry the theme colour rather than a neutral
+     hairline. Border only — the label stays --ink-soft so five of them in a row
+     read as a set of tags, not as five links. */
+  border: 1px solid var(--accent);
   border-radius: 2px;
   color: var(--ink-soft);
 }
